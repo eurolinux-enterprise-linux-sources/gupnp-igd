@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GUPnPSimpleIgdThread</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="GUPnP IGD Reference Manual">
+<link rel="up" href="ch01.html" title="Simple IGD module">
+<link rel="prev" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="Simple IGD module">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GUPnPSimpleIgd.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GUPnP IGD Reference Manual</th>
+<td> </td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GUPnPSimpleIgdThread.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#GUPnPSimpleIgdThread.description" class="shortcut">Description</a>
+                 | 
+                <a href="#GUPnPSimpleIgdThread.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="GUPnPSimpleIgdThread"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GUPnPSimpleIgdThread.top_of_page"></a>GUPnPSimpleIgdThread</span></h2>
+<p>GUPnPSimpleIgdThread — Threaded wrapper for GUPnPSimpleIgd</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GUPnPSimpleIgdThread.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="GUPnPSimpleIgdThread.html#GUPnPSimpleIgdThread-struct" title="GUPnPSimpleIgdThread">GUPnPSimpleIgdThread</a>;
+                    <a class="link" href="GUPnPSimpleIgdThread.html#GUPnPSimpleIgdThreadClass" title="GUPnPSimpleIgdThreadClass">GUPnPSimpleIgdThreadClass</a>;
+<a class="link" href="GUPnPSimpleIgdThread.html" title="GUPnPSimpleIgdThread">GUPnPSimpleIgdThread</a> * <a class="link" href="GUPnPSimpleIgdThread.html#gupnp-simple-igd-thread-new" title="gupnp_simple_igd_thread_new ()">gupnp_simple_igd_thread_new</a>      (void);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GUPnPSimpleIgdThread.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd">GUPnPSimpleIgd</a>
+         +----GUPnPSimpleIgdThread
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GUPnPSimpleIgdThread.description"></a><h2>Description</h2>
+<p>
+This wraps a <a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> into a thread so that it can be used without
+having a <a
+href="http://library.gnome.org/devel/glib/unstable/glib-The-Main-Event-Loop.html#GMainLoop"
+><span class="type">GMainLoop</span></a> running.</p>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GUPnPSimpleIgdThread.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="GUPnPSimpleIgdThread-struct"></a><h3>GUPnPSimpleIgdThread</h3>
+<pre class="programlisting">typedef struct _GUPnPSimpleIgdThread GUPnPSimpleIgdThread;</pre>
+<p>
+All members are private, access them using methods and properties</p>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GUPnPSimpleIgdThreadClass"></a><h3>GUPnPSimpleIgdThreadClass</h3>
+<pre class="programlisting">typedef struct {
+  GUPnPSimpleIgdClass parent_class;
+
+  /*virtual functions */
+} GUPnPSimpleIgdThreadClass;
+</pre>
+<p>
+The Raw UDP component transmitter class</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgdClass" title="GUPnPSimpleIgdClass">GUPnPSimpleIgdClass</a> <em class="structfield"><code>parent_class</code></em>;</span></p></td>
+<td> Our parent
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gupnp-simple-igd-thread-new"></a><h3>gupnp_simple_igd_thread_new ()</h3>
+<pre class="programlisting"><a class="link" href="GUPnPSimpleIgdThread.html" title="GUPnPSimpleIgdThread">GUPnPSimpleIgdThread</a> * gupnp_simple_igd_thread_new      (void);</pre>
+<p>
+Creates a new <a class="link" href="GUPnPSimpleIgdThread.html" title="GUPnPSimpleIgdThread"><span class="type">GUPnPSimpleIgdThread</span></a></p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the new <a class="link" href="GUPnPSimpleIgdThread.html" title="GUPnPSimpleIgdThread"><span class="type">GUPnPSimpleIgdThread</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

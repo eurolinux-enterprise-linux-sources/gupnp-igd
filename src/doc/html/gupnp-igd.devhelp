@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="GUPnP IGD Reference Manual" link="index.html" author="" name="gupnp-igd">
+  <chapters>
+    <sub name="Simple IGD module" link="ch01.html">
+      <sub name="GUPnPSimpleIgd" link="GUPnPSimpleIgd.html"/>
+      <sub name="GUPnPSimpleIgdThread" link="GUPnPSimpleIgdThread.html"/>
+    </sub>
+  </chapters>
+  <functions>
+    <function name="GUPnPSimpleIgd" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd-struct"/>
+    <function name="GUPnPSimpleIgdClass" link="GUPnPSimpleIgd.html#GUPnPSimpleIgdClass"/>
+    <function name="GUPNP_SIMPLE_IGD_ERROR" link="GUPnPSimpleIgd.html#GUPNP-SIMPLE-IGD-ERROR--CAPS"/>
+    <function name="enum GUPnPSimpleIgdError" link="GUPnPSimpleIgd.html#GUPnPSimpleIgdError"/>
+    <function name="gupnp_simple_igd_new ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-new"/>
+    <function name="gupnp_simple_igd_add_port ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port"/>
+    <function name="gupnp_simple_igd_remove_port ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-remove-port"/>
+    <function name="The &quot;main-context&quot; property" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd--main-context"/>
+    <function name="The &quot;request-timeout&quot; property" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd--request-timeout"/>
+    <function name="The &quot;error-mapping-port&quot; signal" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd-error-mapping-port"/>
+    <function name="The &quot;mapped-external-port&quot; signal" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd-mapped-external-port"/>
+    <function name="GUPnPSimpleIgdThread" link="GUPnPSimpleIgdThread.html#GUPnPSimpleIgdThread-struct"/>
+    <function name="GUPnPSimpleIgdThreadClass" link="GUPnPSimpleIgdThread.html#GUPnPSimpleIgdThreadClass"/>
+    <function name="gupnp_simple_igd_thread_new ()" link="GUPnPSimpleIgdThread.html#gupnp-simple-igd-thread-new"/>
+  </functions>
+</book>

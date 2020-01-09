@@ -1,0 +1,337 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">               
+]>
+<refentry id="GUPnPSimpleIgd">
+<refmeta>
+<refentrytitle role="top_of_page" id="GUPnPSimpleIgd.top_of_page">GUPnPSimpleIgd</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GUPNP-IGD Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GUPnPSimpleIgd</refname>
+<refpurpose>A simple class to map ports on UPnP routers</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="GUPnPSimpleIgd.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GUPnPSimpleIgd-struct">GUPnPSimpleIgd</link>;
+                    <link linkend="GUPnPSimpleIgdClass">GUPnPSimpleIgdClass</link>;
+#define             <link linkend="GUPNP-SIMPLE-IGD-ERROR--CAPS">GUPNP_SIMPLE_IGD_ERROR</link>
+enum                <link linkend="GUPnPSimpleIgdError">GUPnPSimpleIgdError</link>;
+<link linkend="GUPnPSimpleIgd">GUPnPSimpleIgd</link> *    <link linkend="gupnp-simple-igd-new">gupnp_simple_igd_new</link>                (<link linkend="GMainContext">GMainContext</link> *main_context);
+<link linkend="void">void</link>                <link linkend="gupnp-simple-igd-add-port">gupnp_simple_igd_add_port</link>           (<link linkend="GUPnPSimpleIgd">GUPnPSimpleIgd</link> *self,
+                                                         const <link linkend="gchar">gchar</link> *protocol,
+                                                         <link linkend="guint16">guint16</link> external_port,
+                                                         const <link linkend="gchar">gchar</link> *local_ip,
+                                                         <link linkend="guint16">guint16</link> local_port,
+                                                         <link linkend="guint32">guint32</link> lease_duration,
+                                                         const <link linkend="gchar">gchar</link> *description);
+<link linkend="void">void</link>                <link linkend="gupnp-simple-igd-remove-port">gupnp_simple_igd_remove_port</link>        (<link linkend="GUPnPSimpleIgd">GUPnPSimpleIgd</link> *self,
+                                                         const <link linkend="gchar">gchar</link> *protocol,
+                                                         <link linkend="guint">guint</link> external_port);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GUPnPSimpleIgd.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GUPnPSimpleIgd
+         +----<link linkend="GUPnPSimpleIgdThread">GUPnPSimpleIgdThread</link>
+</synopsis>
+</refsect1>
+
+
+
+
+
+<refsect1 id="GUPnPSimpleIgd.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GUPnPSimpleIgd--main-context">main-context</link>&quot;             <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+  &quot;<link linkend="GUPnPSimpleIgd--request-timeout">request-timeout</link>&quot;          <link linkend="guint">guint</link>                 : Read / Write
+</synopsis>
+</refsect1>
+
+<refsect1 id="GUPnPSimpleIgd.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GUPnPSimpleIgd-error-mapping-port">error-mapping-port</link>&quot;                             : Run Last / Has Details
+  &quot;<link linkend="GUPnPSimpleIgd-mapped-external-port">mapped-external-port</link>&quot;                           : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GUPnPSimpleIgd.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+This simple class allows applications to map ports on UPnP routers.
+It implements the basic functionalities to map ports to external ports.
+It also allows implementations to know the external port from the router's
+perspective.</para>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="GUPnPSimpleIgd.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GUPnPSimpleIgd-struct" role="struct">
+<title>GUPnPSimpleIgd</title>
+<indexterm zone="GUPnPSimpleIgd-struct"><primary sortas="GUPnPSimpleIgd">GUPnPSimpleIgd</primary></indexterm><programlisting>typedef struct _GUPnPSimpleIgd GUPnPSimpleIgd;</programlisting>
+<para>
+All members are private, access them using methods and properties</para>
+<para>
+</para></refsect2>
+<refsect2 id="GUPnPSimpleIgdClass" role="struct">
+<title>GUPnPSimpleIgdClass</title>
+<indexterm zone="GUPnPSimpleIgdClass"><primary sortas="GUPnPSimpleIgdClass">GUPnPSimpleIgdClass</primary></indexterm><programlisting>typedef struct {
+  GObjectClass parent_class;
+
+  /*virtual functions */
+
+  void (*add_port) (GUPnPSimpleIgd *self,
+      const gchar *protocol,
+      guint16 external_port,
+      const gchar *local_ip,
+      guint16 local_port,
+      guint32 lease_duration,
+      const gchar *description);
+
+  void (*remove_port) (GUPnPSimpleIgd *self,
+      const gchar *protocol,
+      guint external_port);
+} GUPnPSimpleIgdClass;
+</programlisting>
+<para>
+The Raw UDP component transmitter class</para>
+<para>
+</para><variablelist role="struct">
+<varlistentry>
+<term><link linkend="GObjectClass">GObjectClass</link>&#160;<structfield>parent_class</structfield>;</term>
+<listitem><simpara> Our parent
+</simpara></listitem>
+</varlistentry>
+<varlistentry>
+<term><structfield>add_port</structfield>&#160;()</term>
+<listitem><simpara> An implementation of the add_port function
+</simpara></listitem>
+</varlistentry>
+<varlistentry>
+<term><structfield>remove_port</structfield>&#160;()</term>
+<listitem><simpara> An implementation of the delete_port function
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GUPNP-SIMPLE-IGD-ERROR--CAPS" role="macro">
+<title>GUPNP_SIMPLE_IGD_ERROR</title>
+<indexterm zone="GUPNP-SIMPLE-IGD-ERROR--CAPS"><primary sortas="GUPNP_SIMPLE_IGD_ERROR">GUPNP_SIMPLE_IGD_ERROR</primary></indexterm><programlisting>#define GUPNP_SIMPLE_IGD_ERROR (gupnp_simple_igd_get_error_domain ())
+</programlisting>
+<para>
+The <link linkend="GError"><type>GError</type></link> domain for error coming out of GUPnpSimpleIGD</para>
+<para>
+</para></refsect2>
+<refsect2 id="GUPnPSimpleIgdError" role="enum">
+<title>enum GUPnPSimpleIgdError</title>
+<indexterm zone="GUPnPSimpleIgdError"><primary sortas="GUPnPSimpleIgdError">GUPnPSimpleIgdError</primary></indexterm><programlisting>typedef enum {
+  GUPNP_SIMPLE_IGD_ERROR_EXTERNAL_ADDRESS,
+} GUPnPSimpleIgdError;
+</programlisting>
+<para>
+Errors coming out of the GUPnPSimpleIGD object.</para>
+<para>
+</para><variablelist role="enum">
+<varlistentry id="GUPNP-SIMPLE-IGD-ERROR-EXTERNAL-ADDRESS--CAPS" role="constant">
+<term><literal>GUPNP_SIMPLE_IGD_ERROR_EXTERNAL_ADDRESS</literal></term>
+<listitem><simpara> Error getting the external
+address of the router
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gupnp-simple-igd-new" role="function">
+<title>gupnp_simple_igd_new ()</title>
+<indexterm zone="gupnp-simple-igd-new"><primary sortas="gupnp_simple_igd_new">gupnp_simple_igd_new</primary></indexterm><programlisting><link linkend="GUPnPSimpleIgd">GUPnPSimpleIgd</link> *    gupnp_simple_igd_new                (<link linkend="GMainContext">GMainContext</link> *main_context);</programlisting>
+<para>
+This creates a new <link linkend="GUPnpSimpleIgd"><type>GUPnpSimpleIgd</type></link> object using the special GMainContext</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>main_context</parameter>&#160;:</term>
+<listitem><simpara> the <link linkend="GMainContext"><type>GMainContext</type></link> to use (may be NULL for the default
+main context)
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a new <link linkend="GUPnPSimpleIgd"><type>GUPnPSimpleIgd</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gupnp-simple-igd-add-port" role="function">
+<title>gupnp_simple_igd_add_port ()</title>
+<indexterm zone="gupnp-simple-igd-add-port"><primary sortas="gupnp_simple_igd_add_port">gupnp_simple_igd_add_port</primary></indexterm><programlisting><link linkend="void">void</link>                gupnp_simple_igd_add_port           (<link linkend="GUPnPSimpleIgd">GUPnPSimpleIgd</link> *self,
+                                                         const <link linkend="gchar">gchar</link> *protocol,
+                                                         <link linkend="guint16">guint16</link> external_port,
+                                                         const <link linkend="gchar">gchar</link> *local_ip,
+                                                         <link linkend="guint16">guint16</link> local_port,
+                                                         <link linkend="guint32">guint32</link> lease_duration,
+                                                         const <link linkend="gchar">gchar</link> *description);</programlisting>
+<para>
+This adds a port to the router's forwarding table. The mapping will
+be automatically refreshed by this object until it is either removed with
+<link linkend="gupnp-simple-igd-remove-port"><function>gupnp_simple_igd_remove_port()</function></link> or the object disapears.
+</para>
+<para>
+If there is a problem, the <link linkend="GUPnPSimpleIgd-error-mapping-port"><type>"error-mapping-port"</type></link> signal will
+be emitted. If a router is found and a port is mapped correctly,
+<link linkend="GUPnPSimpleIgd-mapped-external-port"><type>"mapped-external-port"</type></link> will be emitted. These signals may
+be emitted multiple times if there are multiple routers present.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>self</parameter>&#160;:</term>
+<listitem><simpara> The <link linkend="GUPnPSimpleIgd"><type>GUPnPSimpleIgd</type></link> object
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>protocol</parameter>&#160;:</term>
+<listitem><simpara> the protocol "UDP" or "TCP"
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>external_port</parameter>&#160;:</term>
+<listitem><simpara> The port to try to open on the external device,
+  0 means to try a random port if the same port as the local port is already
+  taken
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>local_ip</parameter>&#160;:</term>
+<listitem><simpara> The IP address to forward packets to (most likely the local ip address)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>local_port</parameter>&#160;:</term>
+<listitem><simpara> The local port to forward packets to
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>lease_duration</parameter>&#160;:</term>
+<listitem><simpara> The duration of the lease (it will be auto-renewed before it expires). This is in seconds.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>description</parameter>&#160;:</term>
+<listitem><simpara> The description that will appear in the router's table
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gupnp-simple-igd-remove-port" role="function">
+<title>gupnp_simple_igd_remove_port ()</title>
+<indexterm zone="gupnp-simple-igd-remove-port"><primary sortas="gupnp_simple_igd_remove_port">gupnp_simple_igd_remove_port</primary></indexterm><programlisting><link linkend="void">void</link>                gupnp_simple_igd_remove_port        (<link linkend="GUPnPSimpleIgd">GUPnPSimpleIgd</link> *self,
+                                                         const <link linkend="gchar">gchar</link> *protocol,
+                                                         <link linkend="guint">guint</link> external_port);</programlisting>
+<para>
+This tries to remove a port entry from the routers that was previously added
+with <link linkend="gupnp-simple-igd-add-port"><function>gupnp_simple_igd_add_port()</function></link>. There is no indicated of success or failure
+it is a best effort mechanism. If it fails, the bindings will disapears after
+the lease duration set when the port where added.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>self</parameter>&#160;:</term>
+<listitem><simpara> The <link linkend="GUPnPSimpleIgd"><type>GUPnPSimpleIgd</type></link> object
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>protocol</parameter>&#160;:</term>
+<listitem><simpara> the protocol "UDP" or "TCP" as given to
+ <link linkend="gupnp-simple-igd-add-port"><function>gupnp_simple_igd_add_port()</function></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>external_port</parameter>&#160;:</term>
+<listitem><simpara> The port to try to open on the external device as given to
+ <link linkend="gupnp-simple-igd-add-port"><function>gupnp_simple_igd_add_port()</function></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="GUPnPSimpleIgd.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GUPnPSimpleIgd--main-context" role="property"><title>The <literal>&quot;main-context&quot;</literal> property</title>
+<indexterm zone="GUPnPSimpleIgd--main-context"><primary sortas="GUPnPSimpleIgd:main-context">GUPnPSimpleIgd:main-context</primary></indexterm><programlisting>  &quot;main-context&quot;             <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>This GMainContext will be used for all async activities.</para></refsect2>
+<refsect2 id="GUPnPSimpleIgd--request-timeout" role="property"><title>The <literal>&quot;request-timeout&quot;</literal> property</title>
+<indexterm zone="GUPnPSimpleIgd--request-timeout"><primary sortas="GUPnPSimpleIgd:request-timeout">GUPnPSimpleIgd:request-timeout</primary></indexterm><programlisting>  &quot;request-timeout&quot;          <link linkend="guint">guint</link>                 : Read / Write</programlisting>
+<para>After this timeout, the request is considered to have failed andis dropped (in seconds).</para><para>Default value: 5</para>
+</refsect2>
+</refsect1>
+
+<refsect1 id="GUPnPSimpleIgd.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GUPnPSimpleIgd-error-mapping-port" role="signal"><title>The <literal>&quot;error-mapping-port&quot;</literal> signal</title>
+<indexterm zone="GUPnPSimpleIgd-error-mapping-port"><primary sortas="GUPnPSimpleIgd::error-mapping-port">GUPnPSimpleIgd::error-mapping-port</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GUPnPSimpleIgd">GUPnPSimpleIgd</link> *self,
+                                                        <link linkend="gpointer">gpointer</link>        error,
+                                                        <link linkend="gchar">gchar</link>          *proto,
+                                                        <link linkend="guint">guint</link>           external_port,
+                                                        <link linkend="gchar">gchar</link>          *local_ip,
+                                                        <link linkend="guint">guint</link>           local_port,
+                                                        <link linkend="gchar">gchar</link>          *description,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)          : Run Last / Has Details</programlisting>
+<para>
+This means that mapping a port on a specific IGD has failed (it may still
+succeed on other IGDs on the network).</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>self</parameter>&#160;:</term>
+<listitem><simpara> <link linkend="GUPnPSimpleIgd"><type>GUPnPSimpleIgd</type></link> that emitted the signal
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GError"><type>GError</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&#160;:</term>
+<listitem><simpara> The requested protocol
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>external_port</parameter>&#160;:</term>
+<listitem><simpara> the external port requested in <link linkend="gupnp-simple-igd-add-port"><function>gupnp_simple_igd_add_port()</function></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>local_ip</parameter>&#160;:</term>
+<listitem><simpara> internal ip this is forwarded to
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>local_port</parameter>&#160;:</term>
+<listitem><simpara> the local port
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>description</parameter>&#160;:</term>
+<listitem><simpara> the passed description
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GUPnPSimpleIgd-mapped-external-port" role="signal"><title>The <literal>&quot;mapped-external-port&quot;</literal> signal</title>
+<indexterm zone="GUPnPSimpleIgd-mapped-external-port"><primary sortas="GUPnPSimpleIgd::mapped-external-port">GUPnPSimpleIgd::mapped-external-port</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GUPnPSimpleIgd">GUPnPSimpleIgd</link> *self,
+                                                        <link linkend="gchar">gchar</link>          *proto,
+                                                        <link linkend="gchar">gchar</link>          *external_ip,
+                                                        <link linkend="gchar">gchar</link>          *replaces_external_ip,
+                                                        <link linkend="guint">guint</link>           external_port,
+                                                        <link linkend="gchar">gchar</link>          *local_ip,
+                                                        <link linkend="guint">guint</link>           local_port,
+                                                        <link linkend="gchar">gchar</link>          *description,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)                 : Run Last</programlisting>
+<para>
+This signal means that an IGD has been found that that adding a port
+mapping has succeeded.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>self</parameter>&#160;:</term>
+<listitem><simpara> <link linkend="GUPnPSimpleIgd"><type>GUPnPSimpleIgd</type></link> that emitted the signal
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&#160;:</term>
+<listitem><simpara> the requested protocol ("UDP" or "TCP")
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>external_ip</parameter>&#160;:</term>
+<listitem><simpara> the external IP
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>replaces_external_ip</parameter>&#160;:</term>
+<listitem><simpara> if this mapping replaces another mapping,
+ this is the old external IP
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>external_port</parameter>&#160;:</term>
+<listitem><simpara> the external port that was allocated
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>local_ip</parameter>&#160;:</term>
+<listitem><simpara> internal ip this is forwarded to
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>local_port</parameter>&#160;:</term>
+<listitem><simpara> the local port
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>description</parameter>&#160;:</term>
+<listitem><simpara> the user's selected description
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

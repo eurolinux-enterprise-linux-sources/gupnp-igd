@@ -1,0 +1,118 @@
+<!-- ##### SECTION Title ##### -->
+GUPnPSimpleIgd
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### STRUCT GUPnPSimpleIgd ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL GUPnPSimpleIgd::error-mapping-port ##### -->
+<para>
+
+</para>
+
+@gupnpsimpleigd: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@arg4: 
+@Param6: 
+@Param7: 
+
+<!-- ##### SIGNAL GUPnPSimpleIgd::mapped-external-port ##### -->
+<para>
+
+</para>
+
+@gupnpsimpleigd: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@arg4: 
+@arg5: 
+@arg6: 
+@arg7: 
+
+<!-- ##### ARG GUPnPSimpleIgd:main-context ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GUPnPSimpleIgd:request-timeout ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT GUPnPSimpleIgdClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+@add_port: 
+@remove_port: 
+
+<!-- ##### MACRO GUPNP_SIMPLE_IGD_ERROR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### ENUM GUPnPSimpleIgdError ##### -->
+<para>
+
+</para>
+
+@GUPNP_SIMPLE_IGD_ERROR_EXTERNAL_ADDRESS: 
+
+<!-- ##### FUNCTION gupnp_simple_igd_new ##### -->
+<para>
+
+</para>
+
+@main_context: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gupnp_simple_igd_add_port ##### -->
+<para>
+
+</para>
+
+@self: 
+@protocol: 
+@external_port: 
+@local_ip: 
+@local_port: 
+@lease_duration: 
+@description: 
+
+
+<!-- ##### FUNCTION gupnp_simple_igd_remove_port ##### -->
+<para>
+
+</para>
+
+@self: 
+@protocol: 
+@external_port: 
+
+

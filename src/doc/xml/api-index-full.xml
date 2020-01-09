@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">               
+]>
+<indexdiv>
+<indexdiv><title>G</title>
+<indexentry><primaryie linkends="GUPnPSimpleIgd-struct"><link linkend="GUPnPSimpleIgd-struct">GUPnPSimpleIgd</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GUPnPSimpleIgd-error-mapping-port"><link linkend="GUPnPSimpleIgd-error-mapping-port">GUPnPSimpleIgd::error-mapping-port</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GUPnPSimpleIgd-mapped-external-port"><link linkend="GUPnPSimpleIgd-mapped-external-port">GUPnPSimpleIgd::mapped-external-port</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GUPnPSimpleIgd--main-context"><link linkend="GUPnPSimpleIgd--main-context">GUPnPSimpleIgd:main-context</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GUPnPSimpleIgd--request-timeout"><link linkend="GUPnPSimpleIgd--request-timeout">GUPnPSimpleIgd:request-timeout</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GUPnPSimpleIgdClass"><link linkend="GUPnPSimpleIgdClass">GUPnPSimpleIgdClass</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GUPnPSimpleIgdError"><link linkend="GUPnPSimpleIgdError">GUPnPSimpleIgdError</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GUPnPSimpleIgdThread-struct"><link linkend="GUPnPSimpleIgdThread-struct">GUPnPSimpleIgdThread</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GUPnPSimpleIgdThreadClass"><link linkend="GUPnPSimpleIgdThreadClass">GUPnPSimpleIgdThreadClass</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gupnp-simple-igd-add-port"><link linkend="gupnp-simple-igd-add-port">gupnp_simple_igd_add_port</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GUPNP-SIMPLE-IGD-ERROR--CAPS"><link linkend="GUPNP-SIMPLE-IGD-ERROR--CAPS">GUPNP_SIMPLE_IGD_ERROR</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gupnp-simple-igd-new"><link linkend="gupnp-simple-igd-new">gupnp_simple_igd_new</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gupnp-simple-igd-remove-port"><link linkend="gupnp-simple-igd-remove-port">gupnp_simple_igd_remove_port</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gupnp-simple-igd-thread-new"><link linkend="gupnp-simple-igd-thread-new">gupnp_simple_igd_thread_new</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

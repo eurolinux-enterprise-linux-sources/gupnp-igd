@@ -1,3 +1,4 @@
-# ELS - Enterprise Linux/EuroLinux Sources - gupnp-igd 
+# ELS - Enterprise Linux/EuroLinux Sources - gupnp-igd
+ 
 ## Usage:
-  Checkout branch or tag.
+  Checkout branch or tag. Use `make sources` to recreate  SOURCE0 archive.
