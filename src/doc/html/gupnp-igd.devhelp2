@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
 <book xmlns="http://www.devhelp.net/book" title="GUPnP IGD Reference Manual" link="index.html" author="" name="gupnp-igd" version="2" language="c">
   <chapters>
     <sub name="Simple IGD module" link="ch01.html">
       <sub name="GUPnPSimpleIgd" link="GUPnPSimpleIgd.html"/>
       <sub name="GUPnPSimpleIgdThread" link="GUPnPSimpleIgdThread.html"/>
     </sub>
+    <sub name="Symbols index" link="ch02.html"/>
   </chapters>
   <functions>
-    <keyword type="macro" name="GUPNP_SIMPLE_IGD_ERROR" link="GUPnPSimpleIgd.html#GUPNP-SIMPLE-IGD-ERROR:CAPS"/>
-    <keyword type="macro" name="GUPNP_TYPE_SIMPLE_IGD_ERROR" link="GUPnPSimpleIgd.html#GUPNP-TYPE-SIMPLE-IGD-ERROR:CAPS"/>
     <keyword type="function" name="gupnp_simple_igd_new ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-new"/>
     <keyword type="function" name="gupnp_simple_igd_add_port ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port"/>
     <keyword type="function" name="gupnp_simple_igd_remove_port ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-remove-port"/>
     <keyword type="function" name="gupnp_simple_igd_delete_all_mappings ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-delete-all-mappings"/>
+    <keyword type="function" name="gupnp_simple_igd_remove_port_local ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-remove-port-local"/>
     <keyword type="struct" name="struct GUPnPSimpleIgd" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd-struct"/>
     <keyword type="struct" name="GUPnPSimpleIgdClass" link="GUPnPSimpleIgd.html#GUPnPSimpleIgdClass"/>
+    <keyword type="macro" name="GUPNP_SIMPLE_IGD_ERROR" link="GUPnPSimpleIgd.html#GUPNP-SIMPLE-IGD-ERROR:CAPS"/>
     <keyword type="enum" name="enum GUPnPSimpleIgdError" link="GUPnPSimpleIgd.html#GUPnPSimpleIgdError"/>
     <keyword type="property" name="The “main-context” property" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd--main-context"/>
     <keyword type="signal" name="The “context-available” signal" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd-context-available"/>
@@ -24,5 +24,6 @@
     <keyword type="function" name="gupnp_simple_igd_thread_new ()" link="GUPnPSimpleIgdThread.html#gupnp-simple-igd-thread-new"/>
     <keyword type="struct" name="struct GUPnPSimpleIgdThread" link="GUPnPSimpleIgdThread.html#GUPnPSimpleIgdThread-struct"/>
     <keyword type="struct" name="GUPnPSimpleIgdThreadClass" link="GUPnPSimpleIgdThread.html#GUPnPSimpleIgdThreadClass"/>
+    <keyword type="constant" name="GUPNP_SIMPLE_IGD_ERROR_EXTERNAL_ADDRESS" link="GUPnPSimpleIgd.html#GUPNP-SIMPLE-IGD-ERROR-EXTERNAL-ADDRESS:CAPS"/>
   </functions>
 </book>

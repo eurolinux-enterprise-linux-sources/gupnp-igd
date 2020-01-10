@@ -1,3 +1,9 @@
+commit ae939f4833849efb655ed629a3508304d0cf9c56
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Tue Jun 16 15:33:43 2015 -0400
+
+    Update GTK-Doc usage to 1.10
+
 commit 049f7973da3cab179293dc2920cdc8a082f2dfaf
 Author: Olivier Crête <olivier.crete@collabora.com>
 Date:   Tue Sep 30 23:44:11 2014 -0400
@@ -978,9 +984,9 @@ Date:   Fri Oct 17 10:19:16 2008 +0000
 
     2008-10-17  Jussi Kukkonen  <jku@linux.intel.com>
     
-    	* tests/gtest/WANIPConnection.xml:
+            * tests/gtest/WANIPConnection.xml:
     
-    	Remove whitespace from action name in service definition
+            Remove whitespace from action name in service definition
     
     git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1306 d8cb91d7-bff9-0310-92b9-80b65e4482b2
 

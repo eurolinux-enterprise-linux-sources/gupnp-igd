@@ -1,14 +1,13 @@
 %{!?python_sitearch: %global python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
 
 Name:           gupnp-igd
-Version:        0.2.4
-Release:        1%{?dist}
+Version:        0.2.5
+Release:        2%{?dist}
 Summary:        Library to handle UPnP IGD port mapping        
 
-Group:          System Environment/Libraries
 License:        LGPLv2+
-URL:            http://live.gnome.org/GUPnP
-Source0:        http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.2/%{name}-%{version}.tar.xz
+URL:            https://wiki.gnome.org/Projects/GUPnP
+Source0:        https://download.gnome.org/sources/%{name}/0.2/%{name}-%{version}.tar.xz
 
 BuildRequires:  glib2-devel
 BuildRequires:  gobject-introspection-devel
@@ -21,7 +20,6 @@ BuildRequires:  pygtk2-devel
 
 %package        python
 Summary:        Python bindings for %{name}
-Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
 
 %description    python
@@ -31,11 +29,9 @@ The %{name}-python package contains the Python bindings for
 
 %package        devel
 Summary:        Development files for %{name}
-Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
 Requires:       %{name}-python = %{version}-%{release}
 Requires:       pkgconfig
-
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -85,6 +81,10 @@ find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
+* Mon Jun 04 2018 Richard Hughes <rhughes@redhat.com> - 0.2.5-2
+- Update to 0.2.5
+- Resolves: #1569988
+
 * Thu Mar 02 2017 Bastien Nocera <bnocera@redhat.com> - 0.2.4-1
 + gupnp-igd-0.2.4-1
 - Update to 0.2.4
