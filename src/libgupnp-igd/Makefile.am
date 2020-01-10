@@ -4,7 +4,7 @@
 # interfaces added -> increment AGE
 # interfaces removed -> AGE = 0
 
-LTVERSION = 5:0:1
+LTVERSION = 6:0:2
 
 AM_CFLAGS = $(LIBGUPNP_CFLAGS) -I$(top_srcdir)
 
@@ -19,6 +19,7 @@ libgupnp_igd_inc_HEADERS = \
 libgupnp_igd_1_0_la_SOURCES = \
 	gupnp-simple-igd.c \
 	gupnp-simple-igd-thread.c \
+	gupnp-simple-igd-priv.h \
 	gupnp-enum-types.c \
 	gupnp-enum-types.h \
 	$(BUILT_SOURCES)

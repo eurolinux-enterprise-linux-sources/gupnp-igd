@@ -8,21 +8,21 @@
     </sub>
   </chapters>
   <functions>
-    <keyword type="struct" name="GUPnPSimpleIgd" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd-struct"/>
-    <keyword type="struct" name="struct GUPnPSimpleIgdClass" link="GUPnPSimpleIgd.html#GUPnPSimpleIgdClass"/>
     <keyword type="macro" name="GUPNP_SIMPLE_IGD_ERROR" link="GUPnPSimpleIgd.html#GUPNP-SIMPLE-IGD-ERROR:CAPS"/>
     <keyword type="macro" name="GUPNP_TYPE_SIMPLE_IGD_ERROR" link="GUPnPSimpleIgd.html#GUPNP-TYPE-SIMPLE-IGD-ERROR:CAPS"/>
+    <keyword type="function" name="gupnp_simple_igd_new ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-new"/>
+    <keyword type="function" name="gupnp_simple_igd_add_port ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port"/>
+    <keyword type="function" name="gupnp_simple_igd_remove_port ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-remove-port"/>
+    <keyword type="function" name="gupnp_simple_igd_delete_all_mappings ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-delete-all-mappings"/>
+    <keyword type="struct" name="struct GUPnPSimpleIgd" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd-struct"/>
+    <keyword type="struct" name="GUPnPSimpleIgdClass" link="GUPnPSimpleIgd.html#GUPnPSimpleIgdClass"/>
     <keyword type="enum" name="enum GUPnPSimpleIgdError" link="GUPnPSimpleIgd.html#GUPnPSimpleIgdError"/>
-    <keyword type="function" name="gupnp_simple_igd_new ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-new"/>
-    <keyword type="function" name="gupnp_simple_igd_add_port ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port"/>
-    <keyword type="function" name="gupnp_simple_igd_remove_port ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-remove-port"/>
-    <keyword type="function" name="gupnp_simple_igd_delete_all_mappings ()" link="GUPnPSimpleIgd.html#gupnp-simple-igd-delete-all-mappings"/>
-    <keyword type="property" name="The &quot;main-context&quot; property" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd--main-context"/>
-    <keyword type="signal" name="The &quot;error-mapping-port&quot; signal" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd-error-mapping-port"/>
-    <keyword type="signal" name="The &quot;mapped-external-port&quot; signal" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd-mapped-external-port"/>
-    <keyword type="struct" name="GUPnPSimpleIgdThread" link="GUPnPSimpleIgdThread.html#GUPnPSimpleIgdThread-struct"/>
-    <keyword type="struct" name="struct GUPnPSimpleIgdThreadClass" link="GUPnPSimpleIgdThread.html#GUPnPSimpleIgdThreadClass"/>
-    <keyword type="function" name="gupnp_simple_igd_thread_new ()" link="GUPnPSimpleIgdThread.html#gupnp-simple-igd-thread-new"/>
-    <keyword type="constant" name="GUPNP_SIMPLE_IGD_ERROR_EXTERNAL_ADDRESS" link="GUPnPSimpleIgd.html#GUPNP-SIMPLE-IGD-ERROR-EXTERNAL-ADDRESS:CAPS"/>
+    <keyword type="property" name="The “main-context” property" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd--main-context"/>
+    <keyword type="signal" name="The “context-available” signal" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd-context-available"/>
+    <keyword type="signal" name="The “error-mapping-port” signal" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd-error-mapping-port"/>
+    <keyword type="signal" name="The “mapped-external-port” signal" link="GUPnPSimpleIgd.html#GUPnPSimpleIgd-mapped-external-port"/>
+    <keyword type="function" name="gupnp_simple_igd_thread_new ()" link="GUPnPSimpleIgdThread.html#gupnp-simple-igd-thread-new"/>
+    <keyword type="struct" name="struct GUPnPSimpleIgdThread" link="GUPnPSimpleIgdThread.html#GUPnPSimpleIgdThread-struct"/>
+    <keyword type="struct" name="GUPnPSimpleIgdThreadClass" link="GUPnPSimpleIgdThread.html#GUPnPSimpleIgdThreadClass"/>
   </functions>
 </book>

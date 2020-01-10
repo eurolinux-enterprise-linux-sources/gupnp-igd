@@ -35,12 +35,19 @@
  * g_main_context_push_thread_default();
  */
 
+#ifdef HAVE_CONFIG_H
+# include <config.h>
+#endif
 
 #include "gupnp-simple-igd.h"
+#include "gupnp-simple-igd-priv.h"
 #include "gupnp-simple-igd-marshal.h"
 
-#include <string.h>
 #include <arpa/inet.h>
+#include <netinet/in.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/socket.h>
 
 #include <libgupnp/gupnp.h>
 
@@ -98,6 +105,7 @@ enum
 {
   SIGNAL_MAPPED_EXTERNAL_PORT,
   SIGNAL_ERROR_MAPPING_PORT,
+  SIGNAL_CONTEXT_AVAILABLE,
   LAST_SIGNAL
 };
 
@@ -146,6 +154,10 @@ static void gupnp_simple_igd_add_port_real (GUPnPSimpleIgd *self,
 static void gupnp_simple_igd_remove_port_real (GUPnPSimpleIgd *self,
     const gchar *protocol,
     guint external_port);
+static void gupnp_simple_igd_remove_port_local_real (GUPnPSimpleIgd *self,
+    const gchar *protocol,
+    const gchar *local_ip,
+    guint16 local_port);
 
 GQuark
 gupnp_simple_igd_error_quark (void)
@@ -168,6 +180,7 @@ gupnp_simple_igd_class_init (GUPnPSimpleIgdClass *klass)
 
   klass->add_port = gupnp_simple_igd_add_port_real;
   klass->remove_port = gupnp_simple_igd_remove_port_real;
+  klass->remove_port_local = gupnp_simple_igd_remove_port_local_real;
 
   g_object_class_install_property (gobject_class,
       PROP_MAIN_CONTEXT,
@@ -177,7 +190,7 @@ gupnp_simple_igd_class_init (GUPnPSimpleIgdClass *klass)
           G_PARAM_READABLE | G_PARAM_STATIC_STRINGS));
 
   /**
-   * GUPnPSimpleIgd::mapped-external-port
+   * GUPnPSimpleIgd::mapped-external-port:
    * @self: #GUPnPSimpleIgd that emitted the signal
    * @proto: the requested protocol ("UDP" or "TCP")
    * @external_ip: the external IP
@@ -203,7 +216,7 @@ gupnp_simple_igd_class_init (GUPnPSimpleIgdClass *klass)
       G_TYPE_STRING, G_TYPE_UINT, G_TYPE_STRING);
 
   /**
-   * GUPnPSimpleIgd::error-mapping-port
+   * GUPnPSimpleIgd::error-mapping-port:
    * @self: #GUPnPSimpleIgd that emitted the signal
    * @error: a #GError
    * @proto: The requested protocol
@@ -221,9 +234,31 @@ gupnp_simple_igd_class_init (GUPnPSimpleIgdClass *klass)
       0,
       NULL,
       NULL,
-      _gupnp_simple_igd_marshal_VOID__POINTER_STRING_UINT_STRING_UINT_STRING,
-      G_TYPE_NONE, 6, G_TYPE_POINTER, G_TYPE_STRING, G_TYPE_UINT,
+      _gupnp_simple_igd_marshal_VOID__BOXED_STRING_UINT_STRING_UINT_STRING,
+      G_TYPE_NONE, 6, G_TYPE_ERROR, G_TYPE_STRING, G_TYPE_UINT,
       G_TYPE_STRING, G_TYPE_UINT, G_TYPE_STRING);
+
+  /**
+   * GUPnPSimpleIgd::context-available:
+   * @self: #GUPnPSimpleIgd that emitted the signal
+   * @context: a #GUPnPContext
+   *
+   * This is to allow the application to control which #GUPnPContext this
+   * client should use. If the application connects to this signal, it controls
+   * if a context will be used by changing the return value of the signal
+   * handler.
+   *
+   * Returns: FALSE if the context should be used or TRUE if it should
+   * be ignored
+   */
+  signals[SIGNAL_CONTEXT_AVAILABLE] = g_signal_new ("context-available",
+      G_TYPE_FROM_CLASS (klass),
+      G_SIGNAL_RUN_LAST,
+      0,
+      NULL,
+      NULL,
+      _gupnp_simple_igd_marshal_BOOLEAN__OBJECT,
+      G_TYPE_BOOLEAN, 1, G_TYPE_OBJECT);
 }
 
 static void
@@ -505,6 +540,8 @@ gupnp_simple_igd_add_control_point (GUPnPSimpleIgd *self,
 
   cp = gupnp_control_point_new (gupnp_context, target);
   g_return_if_fail (cp);
+  g_assert (GUPNP_IS_CONTROL_POINT (cp));
+  g_assert (G_IS_OBJECT (self));
 
   g_signal_connect_object (cp, "service-proxy-available",
       G_CALLBACK (_cp_service_avail), self, 0);
@@ -523,6 +560,13 @@ _context_available (GUPnPContextManager *manager, GUPnPContext *gupnp_context,
     GUPnPSimpleIgd *self)
 {
   SoupSession *session;
+  gboolean ignore_context = FALSE;
+
+  g_signal_emit (self, signals[SIGNAL_CONTEXT_AVAILABLE], 0, gupnp_context,
+      &ignore_context);
+
+  if (ignore_context)
+    return;
 
   session = gupnp_context_get_session (gupnp_context);
   g_object_set (session, "timeout", SOUP_REQUEST_TIMEOUT, NULL);
@@ -547,8 +591,8 @@ gupnp_simple_igd_constructed (GObject *object)
 
   self->priv->gupnp_context_manager = gupnp_context_manager_create (0);
 
-  g_signal_connect (self->priv->gupnp_context_manager, "context-available",
-      G_CALLBACK (_context_available), self);
+  g_signal_connect_object (self->priv->gupnp_context_manager,
+      "context-available", G_CALLBACK (_context_available), self, 0);
 
   if (G_OBJECT_CLASS (gupnp_simple_igd_parent_class)->constructed)
     G_OBJECT_CLASS (gupnp_simple_igd_parent_class)->constructed (object);
@@ -813,9 +857,6 @@ gupnp_simple_igd_add_port_real (GUPnPSimpleIgd *self,
   struct Mapping *mapping = g_slice_new0 (struct Mapping);
   guint i;
 
-  g_return_if_fail (protocol && local_ip);
-  g_return_if_fail (!strcmp (protocol, "UDP") || !strcmp (protocol, "TCP"));
-
   mapping->protocol = g_strdup (protocol);
   mapping->requested_external_port = external_port;
   mapping->local_ip = g_strdup (local_ip);
@@ -863,8 +904,9 @@ gupnp_simple_igd_add_port_real (GUPnPSimpleIgd *self,
  * @description: The description that will appear in the router's table
  *
  * This adds a port to the router's forwarding table. The mapping will
- * be automatically refreshed by this object until it is either removed with
- * gupnp_simple_igd_remove_port() or the object disapears.
+ * be automatically refreshed by this object until it is either
+ * removed with gupnp_simple_igd_remove_port(),
+ * gupnp_simple_igd_remove_port_local() or the object disapears.
  *
  * If there is a problem, the #GUPnPSimpleIgd::error-mapping-port signal will
  * be emitted. If a router is found and a port is mapped correctly,
@@ -884,6 +926,9 @@ gupnp_simple_igd_add_port (GUPnPSimpleIgd *self,
   GUPnPSimpleIgdClass *klass = GUPNP_SIMPLE_IGD_GET_CLASS (self);
 
   g_return_if_fail (klass->add_port);
+  g_return_if_fail (protocol && local_ip);
+  g_return_if_fail (local_port > 0);
+  g_return_if_fail (!strcmp (protocol, "UDP") || !strcmp (protocol, "TCP"));
 
   klass->add_port (self, protocol, external_port, local_ip, local_port,
       lease_duration, description);
@@ -896,8 +941,6 @@ gupnp_simple_igd_remove_port_real (GUPnPSimpleIgd *self,
 {
   struct Mapping *mapping = NULL;
   guint i;
-
-  g_return_if_fail (protocol);
 
   for (i = 0; i < self->priv->mappings->len; i++)
   {
@@ -937,9 +980,73 @@ gupnp_simple_igd_remove_port (GUPnPSimpleIgd *self,
 {
   GUPnPSimpleIgdClass *klass = GUPNP_SIMPLE_IGD_GET_CLASS (self);
 
+  g_return_if_fail (protocol);
+  g_return_if_fail (external_port <= 65535);
+
   g_return_if_fail (klass->remove_port);
 
   klass->remove_port (self, protocol, external_port);
+}
+
+
+static void
+gupnp_simple_igd_remove_port_local_real (GUPnPSimpleIgd *self,
+    const gchar *protocol,
+    const gchar *local_ip,
+    guint16 local_port)
+{
+  struct Mapping *mapping = NULL;
+  guint i;
+
+  for (i = 0; i < self->priv->mappings->len; i++)
+  {
+    struct Mapping *tmpmapping = g_ptr_array_index (self->priv->mappings, i);
+    if (tmpmapping->local_port == local_port &&
+        !strcmp (tmpmapping->local_ip, local_ip) &&
+        !strcmp (tmpmapping->protocol, protocol))
+    {
+      mapping = tmpmapping;
+      break;
+    }
+  }
+  if (!mapping)
+    return;
+
+  g_ptr_array_remove_index_fast (self->priv->mappings, i);
+
+  free_mapping (self, mapping);
+}
+
+/**
+ * gupnp_simple_igd_remove_port_local:
+ * @self: The #GUPnPSimpleIgd object
+ * @protocol: the protocol "UDP" or "TCP" as given to
+ *  gupnp_simple_igd_add_port()
+ * @local_ip: The local ip on the internal device as was to
+ *  gupnp_simple_igd_add_port()
+ * @local_port: The port to try to open on the internal device as given to
+ *  gupnp_simple_igd_add_port()
+ *
+ * This tries to remove a port entry from the routers that was previously added
+ * with gupnp_simple_igd_add_port(). There is no indicated of success or failure
+ * it is a best effort mechanism. If it fails, the bindings will disapears after
+ * the lease duration set when the port where added.
+ */
+void
+gupnp_simple_igd_remove_port_local (GUPnPSimpleIgd *self,
+    const gchar *protocol,
+    const gchar *local_ip,
+    guint16 local_port)
+{
+  GUPnPSimpleIgdClass *klass = GUPNP_SIMPLE_IGD_GET_CLASS (self);
+
+  g_return_if_fail (protocol != NULL);
+  g_return_if_fail (local_ip != NULL);
+  g_return_if_fail (local_port != 0);
+
+  g_return_if_fail (klass->remove_port_local);
+
+  klass->remove_port_local (self, protocol, local_ip, local_port);
 }
 
 static void

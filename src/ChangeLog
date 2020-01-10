@@ -1,3 +1,157 @@
+commit 049f7973da3cab179293dc2920cdc8a082f2dfaf
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Tue Sep 30 23:44:11 2014 -0400
+
+    Version 0.2.4
+
+commit c383af72e3846f30ea40f1807b892c36544404c4
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Tue Sep 30 23:10:53 2014 -0400
+
+    Add function to remove the port using the local port
+
+commit e47f5a979764c17d59432f2b7b35a89798b1d2ed
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Tue Sep 30 23:10:33 2014 -0400
+
+    Move pre-conditions to the synchronous functions
+
+commit ba40241d2238e46021f7f9080911e4c286b7626d
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Tue Sep 30 23:07:32 2014 -0400
+
+    Make the Class structures private
+
+commit 7a92d1f7fd4e41cbbd26a27a9582e5175f0f36af
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Fri Aug 1 23:38:42 2014 +0200
+
+    doap: add <programming-language>
+
+commit 80be2222f10ff7198ce18b75555888a61e3e94c9
+Author: Olav Vitters <olav@vitters.nl>
+Date:   Wed Jul 30 20:24:15 2014 +0200
+
+    fix userid
+
+commit 7757f6cf8cc6eb16f4de8fac017049bf0602437c
+Author: Olav Vitters <olav@vitters.nl>
+Date:   Wed Jul 30 20:23:02 2014 +0200
+
+    doap category core
+
+commit e3c4269ff95a298c08153aca67be281301b56187
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Wed Feb 5 17:55:14 2014 -0500
+
+    Version 0.2.3
+
+commit df09893c4bf74966554e6ee4ee5ff115a48850fd
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Wed Feb 5 17:54:26 2014 -0500
+
+    Make pygtk 2 python bindings disabled by default
+
+commit 90698d8d0ed087a468df62e181066795a0d77feb
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Wed Feb 5 17:49:50 2014 -0500
+
+    Use the new signal to restrict unit tests to the "lo" interface
+
+commit 2033c12147f8de9f3d3ac98b631004fca21f3b5c
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Wed Feb 5 17:49:38 2014 -0500
+
+    Make sure the GUPnPContextManager callback is not called after the object has
+    disappeared
+
+commit 19528de30574e779979dbf4e6b246d22b96fc01b
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Wed Feb 5 17:49:11 2014 -0500
+
+    Add signal to make it possible to ignore certain GUPnPContexts
+
+commit ab4b4eba4b93ee21f904a23ff4a4ab1226652576
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Mon Jun 24 18:36:43 2013 -0400
+
+    Switch to gnome-autogen.sh
+
+commit 43b3c5344ba0f0cab3848864938ad0a0c93b49cf
+Author: Jasper Lievisse Adriaanse <jasper@humppa.nl>
+Date:   Mon Jul 4 19:46:00 2011 +0000
+
+    Fix build on OpenBSD.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=653970
+
+commit c4998d07d4420590d31457e728069def4a7035c9
+Author: Nuno Araujo <nuno.araujo@russo79.com>
+Date:   Sat Jan 19 00:22:52 2013 +0100
+
+    build: add support for automake-1.13
+    
+    In Automake 1.13, the long-deprecated macro AM_CONFIG_HEADER (deprecated
+    since 2002) has been removed in favour of AC_CONFIG_HEADERS.
+
+commit b0c979055339cf83f0485f545e6740ea7524ae4b
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Mon Jun 24 17:09:11 2013 -0400
+
+    Pass GError as pointer, not struct, to g_signal_emit()
+
+commit 9b5fd5ce1b9962cabd5e532b2bf2a388c7858dfc
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Mon Jun 24 16:33:10 2013 -0400
+
+    Fix autotools warnings
+
+commit 711a4482c94db1d57a3d53d58c7b73cf0f3c0981
+Author: Laurent Bigonville <bigon@debian.org>
+Date:   Sun Jun 23 16:34:15 2013 -0400
+
+    Explicitly link against gssdp-1.0
+
+commit a35e01c480706d15c4743e0567465af15316939b
+Author: Alban Browaeys <prahal@yahoo.com>
+Date:   Tue Jan 22 10:55:54 2013 +0100
+
+    build: also include config.h in the examples.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=692269
+
+commit 5b72f293cd9af56dc35a146a15ccad2990aba9e0
+Author: Jens Georg <mail@jensge.org>
+Date:   Mon Jan 14 10:48:08 2013 +0100
+
+    Re-link against gthread
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=691609
+
+commit 43a59e5098133bef66b684579c86f4487f43d318
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Jan 4 12:22:00 2013 -0500
+
+    Require GLib 2.26 and ignore later deprecations
+
+commit ca9d8e4c5b1b674a79bf19c5b66d901f96d37e49
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Jan 4 12:21:28 2013 -0500
+
+    Fix introspection comment
+
+commit cc8a01e9f2c28c233800f3fe08441bf7f9cfaedb
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Jan 4 12:21:21 2013 -0500
+
+    Include config.h everywhere
+
+commit 43d4082844d964baef4db736ca9ef5afd1d77445
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Jan 4 12:11:07 2013 -0500
+
+    Emit GError in signal as boxed type
+
 commit 4be83cf8cd41fbf7c663c0cdd3563dba55d43c58
 Author: Jens Georg <mail@jensge.org>
 Date:   Fri Nov 23 14:27:58 2012 +0100

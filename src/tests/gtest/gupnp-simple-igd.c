@@ -50,6 +50,7 @@ static GUPnPServiceInfo *pppservice = NULL;
 
 gboolean return_conflict = FALSE;
 gboolean dispose_removes = FALSE;
+gboolean local_remove = FALSE;
 gchar *invalid_ip = NULL;
 
 static void
@@ -86,6 +87,7 @@ get_external_ip_address_cb (GUPnPService *service,
         NULL);
   else
     g_assert_not_reached ();
+
   gupnp_service_action_return (action);
 
 }
@@ -209,8 +211,10 @@ mapped_external_port_cb (GUPnPSimpleIgd *igd, gchar *proto,
             !strcmp (external_ip, PPP_ADDRESS_SECOND)));
     if (dispose_removes)
       g_object_unref (igd);
+    else if (local_remove)
+      gupnp_simple_igd_remove_port_local (igd, proto, local_ip, local_port);
     else
-      gupnp_simple_igd_remove_port (igd, "UDP", requested_external_port);
+      gupnp_simple_igd_remove_port (igd, proto, requested_external_port);
   }
   else
   {
@@ -235,7 +239,7 @@ error_mapping_port_cb (GUPnPSimpleIgd *igd, GError *error, gchar *proto,
   g_assert (description != NULL);
   g_assert (local_port == INTERNAL_PORT);
 
-  if (invalid_ip)
+  if (invalid_ip && error->domain != GUPNP_CONTROL_ERROR)
   {
     g_assert (error);
     g_assert (error->domain == GUPNP_SIMPLE_IGD_ERROR);
@@ -243,8 +247,21 @@ error_mapping_port_cb (GUPnPSimpleIgd *igd, GError *error, gchar *proto,
     g_assert (error->message);
     g_main_loop_quit (loop);
   }
+#if 0
   else
     g_assert_not_reached ();
+#endif
+}
+
+static gboolean
+ignore_non_localhost (GUPnPSimpleIgd *igd, GUPnPContext *gupnp_context,
+    gpointer user_data)
+{
+  if (!g_strcmp0 (gssdp_client_get_interface (GSSDP_CLIENT (gupnp_context)),
+          "lo"))
+    return FALSE;
+  else
+    return TRUE;
 }
 
 static void
@@ -257,9 +274,12 @@ run_gupnp_simple_igd_test (GMainContext *mainctx, GUPnPSimpleIgd *igd,
   GUPnPDeviceInfo *subdev2;
   const gchar *xml_path = ".";
 
+  g_signal_connect (igd, "context-available",
+        G_CALLBACK (ignore_non_localhost), NULL);
+
   if (mainctx)
     g_main_context_push_thread_default (mainctx);
-  context = gupnp_context_new (NULL, NULL, 0, NULL);
+  context = gupnp_context_new (NULL, "lo", 0, NULL);
   g_assert (context);
 
   if (g_getenv ("XML_PATH"))
@@ -340,6 +360,19 @@ test_gupnp_simple_igd_default_ctx (void)
 
   run_gupnp_simple_igd_test (NULL, igd, INTERNAL_PORT);
   g_object_unref (igd);
+}
+
+static void
+test_gupnp_simple_igd_default_ctx_local (void)
+{
+  GUPnPSimpleIgd *igd = gupnp_simple_igd_new ();
+
+  local_remove = TRUE;
+
+  run_gupnp_simple_igd_test (NULL, igd, INTERNAL_PORT);
+  g_object_unref (igd);
+
+  local_remove = FALSE;
 }
 
 static void
@@ -446,6 +479,8 @@ int main (int argc, char **argv)
 
   g_test_add_func("/simpleigd/new", test_gupnp_simple_igd_new);
   g_test_add_func ("/simpleigd/default_ctx", test_gupnp_simple_igd_default_ctx);
+  g_test_add_func ("/simpleigd/default_ctx/remove_local",
+      test_gupnp_simple_igd_default_ctx_local);
   g_test_add_func ("/simpleigd/custom_ctx", test_gupnp_simple_igd_custom_ctx);
   g_test_add_func ("/simpleigd/thread", test_gupnp_simple_igd_thread);
   g_test_add_func ("/simpleigd/random/no_conflict",

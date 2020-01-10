@@ -98,24 +98,24 @@ _gupnp_simple_igd_marshal_VOID__STRING_STRING_STRING_UINT_STRING_UINT_STRING (GC
             data2);
 }
 
-/* VOID:POINTER,STRING,UINT,STRING,UINT,STRING (gupnp-simple-igd-marshal.list:2) */
+/* VOID:BOXED,STRING,UINT,STRING,UINT,STRING (gupnp-simple-igd-marshal.list:2) */
 void
-_gupnp_simple_igd_marshal_VOID__POINTER_STRING_UINT_STRING_UINT_STRING (GClosure     *closure,
-                                                                        GValue       *return_value G_GNUC_UNUSED,
-                                                                        guint         n_param_values,
-                                                                        const GValue *param_values,
-                                                                        gpointer      invocation_hint G_GNUC_UNUSED,
-                                                                        gpointer      marshal_data)
+_gupnp_simple_igd_marshal_VOID__BOXED_STRING_UINT_STRING_UINT_STRING (GClosure     *closure,
+                                                                      GValue       *return_value G_GNUC_UNUSED,
+                                                                      guint         n_param_values,
+                                                                      const GValue *param_values,
+                                                                      gpointer      invocation_hint G_GNUC_UNUSED,
+                                                                      gpointer      marshal_data)
 {
-  typedef void (*GMarshalFunc_VOID__POINTER_STRING_UINT_STRING_UINT_STRING) (gpointer     data1,
-                                                                             gpointer     arg_1,
-                                                                             gpointer     arg_2,
-                                                                             guint        arg_3,
-                                                                             gpointer     arg_4,
-                                                                             guint        arg_5,
-                                                                             gpointer     arg_6,
-                                                                             gpointer     data2);
-  register GMarshalFunc_VOID__POINTER_STRING_UINT_STRING_UINT_STRING callback;
+  typedef void (*GMarshalFunc_VOID__BOXED_STRING_UINT_STRING_UINT_STRING) (gpointer     data1,
+                                                                           gpointer     arg_1,
+                                                                           gpointer     arg_2,
+                                                                           guint        arg_3,
+                                                                           gpointer     arg_4,
+                                                                           guint        arg_5,
+                                                                           gpointer     arg_6,
+                                                                           gpointer     data2);
+  register GMarshalFunc_VOID__BOXED_STRING_UINT_STRING_UINT_STRING callback;
   register GCClosure *cc = (GCClosure*) closure;
   register gpointer data1, data2;
 
@@ -131,15 +131,54 @@ _gupnp_simple_igd_marshal_VOID__POINTER_STRING_UINT_STRING_UINT_STRING (GClosure
       data1 = g_value_peek_pointer (param_values + 0);
       data2 = closure->data;
     }
-  callback = (GMarshalFunc_VOID__POINTER_STRING_UINT_STRING_UINT_STRING) (marshal_data ? marshal_data : cc->callback);
+  callback = (GMarshalFunc_VOID__BOXED_STRING_UINT_STRING_UINT_STRING) (marshal_data ? marshal_data : cc->callback);
 
   callback (data1,
-            g_marshal_value_peek_pointer (param_values + 1),
+            g_marshal_value_peek_boxed (param_values + 1),
             g_marshal_value_peek_string (param_values + 2),
             g_marshal_value_peek_uint (param_values + 3),
             g_marshal_value_peek_string (param_values + 4),
             g_marshal_value_peek_uint (param_values + 5),
             g_marshal_value_peek_string (param_values + 6),
             data2);
+}
+
+/* BOOLEAN:OBJECT (gupnp-simple-igd-marshal.list:3) */
+void
+_gupnp_simple_igd_marshal_BOOLEAN__OBJECT (GClosure     *closure,
+                                           GValue       *return_value G_GNUC_UNUSED,
+                                           guint         n_param_values,
+                                           const GValue *param_values,
+                                           gpointer      invocation_hint G_GNUC_UNUSED,
+                                           gpointer      marshal_data)
+{
+  typedef gboolean (*GMarshalFunc_BOOLEAN__OBJECT) (gpointer     data1,
+                                                    gpointer     arg_1,
+                                                    gpointer     data2);
+  register GMarshalFunc_BOOLEAN__OBJECT callback;
+  register GCClosure *cc = (GCClosure*) closure;
+  register gpointer data1, data2;
+  gboolean v_return;
+
+  g_return_if_fail (return_value != NULL);
+  g_return_if_fail (n_param_values == 2);
+
+  if (G_CCLOSURE_SWAP_DATA (closure))
+    {
+      data1 = closure->data;
+      data2 = g_value_peek_pointer (param_values + 0);
+    }
+  else
+    {
+      data1 = g_value_peek_pointer (param_values + 0);
+      data2 = closure->data;
+    }
+  callback = (GMarshalFunc_BOOLEAN__OBJECT) (marshal_data ? marshal_data : cc->callback);
+
+  v_return = callback (data1,
+                       g_marshal_value_peek_object (param_values + 1),
+                       data2);
+
+  g_value_set_boolean (return_value, v_return);
 }
 

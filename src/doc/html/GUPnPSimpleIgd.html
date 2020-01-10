@@ -2,36 +2,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GUPnPSimpleIgd</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GUPnP IGD Reference Manual: GUPnPSimpleIgd</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GUPnP IGD Reference Manual">
 <link rel="up" href="ch01.html" title="Simple IGD module">
 <link rel="prev" href="ch01.html" title="Simple IGD module">
 <link rel="next" href="GUPnPSimpleIgdThread.html" title="GUPnPSimpleIgdThread">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.21 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="ch01.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GUPnP IGD Reference Manual</th>
-<td><a accesskey="n" href="GUPnPSimpleIgdThread.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#GUPnPSimpleIgd.synopsis" class="shortcut">Top</a>
-                   | 
-                  <a href="#GUPnPSimpleIgd.description" class="shortcut">Description</a>
-                   | 
-                  <a href="#GUPnPSimpleIgd.object-hierarchy" class="shortcut">Object Hierarchy</a>
-                   | 
-                  <a href="#GUPnPSimpleIgd.properties" class="shortcut">Properties</a>
-                   | 
-                  <a href="#GUPnPSimpleIgd.signals" class="shortcut">Signals</a>
-</td></tr>
-</table>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#GUPnPSimpleIgd.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#GUPnPSimpleIgd.object-hierarchy" class="shortcut">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a href="#GUPnPSimpleIgd.properties" class="shortcut">Properties</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a href="#GUPnPSimpleIgd.signals" class="shortcut">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="ch01.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="GUPnPSimpleIgdThread.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="GUPnPSimpleIgd"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -39,117 +32,143 @@
 <h2><span class="refentrytitle"><a name="GUPnPSimpleIgd.top_of_page"></a>GUPnPSimpleIgd</span></h2>
 <p>GUPnPSimpleIgd — A simple class to map ports on UPnP routers</p>
 </td>
-<td valign="top" align="right"></td>
+<td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
-<div class="refsynopsisdiv">
-<a name="GUPnPSimpleIgd.synopsis"></a><h2>Synopsis</h2>
-<pre class="synopsis">                    <a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgd-struct" title="GUPnPSimpleIgd">GUPnPSimpleIgd</a>;
-struct              <a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgdClass" title="struct GUPnPSimpleIgdClass">GUPnPSimpleIgdClass</a>;
-#define             <a class="link" href="GUPnPSimpleIgd.html#GUPNP-SIMPLE-IGD-ERROR:CAPS" title="GUPNP_SIMPLE_IGD_ERROR">GUPNP_SIMPLE_IGD_ERROR</a>
-#define             <a class="link" href="GUPnPSimpleIgd.html#GUPNP-TYPE-SIMPLE-IGD-ERROR:CAPS" title="GUPNP_TYPE_SIMPLE_IGD_ERROR">GUPNP_TYPE_SIMPLE_IGD_ERROR</a>
-enum                <a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgdError" title="enum GUPnPSimpleIgdError">GUPnPSimpleIgdError</a>;
-<a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="returnvalue">GUPnPSimpleIgd</span></a> *    <a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-new" title="gupnp_simple_igd_new ()">gupnp_simple_igd_new</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port" title="gupnp_simple_igd_add_port ()">gupnp_simple_igd_add_port</a>           (<em class="parameter"><code><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *protocol</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> external_port</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *local_ip</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> local_port</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> lease_duration</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *description</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-remove-port" title="gupnp_simple_igd_remove_port ()">gupnp_simple_igd_remove_port</a>        (<em class="parameter"><code><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *protocol</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> external_port</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-delete-all-mappings" title="gupnp_simple_igd_delete_all_mappings ()">gupnp_simple_igd_delete_all_mappings</a>
-                                                        (<em class="parameter"><code><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self</code></em>);
-</pre>
-</div>
 <div class="refsect1">
-<a name="GUPnPSimpleIgd.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
-   +----GUPnPSimpleIgd
-         +----<a class="link" href="GUPnPSimpleIgdThread.html" title="GUPnPSimpleIgdThread">GUPnPSimpleIgdThread</a>
-</pre>
-</div>
-<div class="refsect1">
-<a name="GUPnPSimpleIgd.properties"></a><h2>Properties</h2>
-<pre class="synopsis">
-  "<a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgd--main-context" title='The "main-context" property'>main-context</a>"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>              : Read
-</pre>
-</div>
-<div class="refsect1">
-<a name="GUPnPSimpleIgd.signals"></a><h2>Signals</h2>
-<pre class="synopsis">
-  "<a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgd-error-mapping-port" title='The "error-mapping-port" signal'>error-mapping-port</a>"                             : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-DETAILED:CAPS"><code class="literal">Has Details</code></a>
-  "<a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgd-mapped-external-port" title='The "mapped-external-port" signal'>mapped-external-port</a>"                           : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
-</pre>
-</div>
-<div class="refsect1">
-<a name="GUPnPSimpleIgd.description"></a><h2>Description</h2>
-<p>
-This simple class allows applications to map ports on UPnP routers.
-It implements the basic functionalities to map ports to external ports.
-It also allows implementations to know the external port from the router's
-perspective.
-</p>
-<p>
-Every call to this object, including its creation, MUST always be done
-using the same thread local <a href="http://library.gnome.org/devel/glib/unstable/glib-The-Main-Event-Loop.html#GMainContext"><span class="type">GMainContext</span></a> pushed via
-<a href="http://library.gnome.org/devel/glib/unstable/glib-The-Main-Event-Loop.html#g-main-context-push-thread-default"><code class="function">g_main_context_push_thread_default()</code></a>;
-</p>
-</div>
-<div class="refsect1">
-<a name="GUPnPSimpleIgd.details"></a><h2>Details</h2>
-<div class="refsect2">
-<a name="GUPnPSimpleIgd-struct"></a><h3>GUPnPSimpleIgd</h3>
-<pre class="programlisting">typedef struct _GUPnPSimpleIgd GUPnPSimpleIgd;</pre>
-<p>
-All members are private, access them using methods and properties
-</p>
-</div>
-<hr>
-<div class="refsect2">
-<a name="GUPnPSimpleIgdClass"></a><h3>struct GUPnPSimpleIgdClass</h3>
-<pre class="programlisting">struct GUPnPSimpleIgdClass {
-  GObjectClass parent_class;
-
-  /*virtual functions */
-
-  void (*add_port) (GUPnPSimpleIgd *self,
-      const gchar *protocol,
-      guint16 external_port,
-      const gchar *local_ip,
-      guint16 local_port,
-      guint32 lease_duration,
-      const gchar *description);
-
-  void (*remove_port) (GUPnPSimpleIgd *self,
-      const gchar *protocol,
-      guint external_port);
-};
-</pre>
-<p>
-The Raw UDP component transmitter class
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
+<a name="GUPnPSimpleIgd.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
 <tbody>
 <tr>
-<td><p><span class="term"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> <em class="structfield"><code><a name="GUPnPSimpleIgdClass.parent-class"></a>parent_class</code></em>;</span></p></td>
-<td>Our parent</td>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="GUPnPSimpleIgd.html#GUPNP-SIMPLE-IGD-ERROR:CAPS" title="GUPNP_SIMPLE_IGD_ERROR">GUPNP_SIMPLE_IGD_ERROR</a></td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="structfield"><code><a name="GUPnPSimpleIgdClass.add-port"></a>add_port</code></em> ()</span></p></td>
-<td>An implementation of the add_port function</td>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="GUPnPSimpleIgd.html#GUPNP-TYPE-SIMPLE-IGD-ERROR:CAPS" title="GUPNP_TYPE_SIMPLE_IGD_ERROR">GUPNP_TYPE_SIMPLE_IGD_ERROR</a></td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="structfield"><code><a name="GUPnPSimpleIgdClass.remove-port"></a>remove_port</code></em> ()</span></p></td>
-<td>An implementation of the delete_port function</td>
+<td class="function_type">
+<a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="returnvalue">GUPnPSimpleIgd</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-new" title="gupnp_simple_igd_new ()">gupnp_simple_igd_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port" title="gupnp_simple_igd_add_port ()">gupnp_simple_igd_add_port</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-remove-port" title="gupnp_simple_igd_remove_port ()">gupnp_simple_igd_remove_port</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-delete-all-mappings" title="gupnp_simple_igd_delete_all_mappings ()">gupnp_simple_igd_delete_all_mappings</a> <span class="c_punctuation">()</span>
+</td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<hr>
+<div class="refsect1">
+<a name="GUPnPSimpleIgd.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table border="0">
+<colgroup>
+<col width="150px" class="properties_type">
+<col width="300px" class="properties_name">
+<col width="200px" class="properties_flags">
+</colgroup>
+<tbody><tr>
+<td class="property_type"><span class="type">gpointer</span></td>
+<td class="property_name"><a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgd--main-context" title="The “main-context” property">main-context</a></td>
+<td class="property_flags">Read</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GUPnPSimpleIgd.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table border="0">
+<colgroup>
+<col width="150px" class="signals_return">
+<col width="300px" class="signals_name">
+<col width="200px" class="signals_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="signal_type"><span class="returnvalue">gboolean</span></td>
+<td class="signal_name"><a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgd-context-available" title="The “context-available” signal">context-available</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgd-error-mapping-port" title="The “error-mapping-port” signal">error-mapping-port</a></td>
+<td class="signal_flags">Has Details</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgd-mapped-external-port" title="The “mapped-external-port” signal">mapped-external-port</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GUPnPSimpleIgd.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgd-struct" title="struct GUPnPSimpleIgd">GUPnPSimpleIgd</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgdClass" title="GUPnPSimpleIgdClass">GUPnPSimpleIgdClass</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgdError" title="enum GUPnPSimpleIgdError">GUPnPSimpleIgdError</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GUPnPSimpleIgd.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GUPnPSimpleIgd
+        <span class="lineart">╰──</span> <a class="link" href="GUPnPSimpleIgdThread.html" title="GUPnPSimpleIgdThread">GUPnPSimpleIgdThread</a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="GUPnPSimpleIgd.description"></a><h2>Description</h2>
+<p>This simple class allows applications to map ports on UPnP routers.
+It implements the basic functionalities to map ports to external ports.
+It also allows implementations to know the external port from the router's
+perspective.</p>
+<p>Every call to this object, including its creation, MUST always be done
+using the same thread local <span class="type">GMainContext</span> pushed via
+<code class="function">g_main_context_push_thread_default()</code>;</p>
+</div>
+<div class="refsect1">
+<a name="GUPnPSimpleIgd.functions_details"></a><h2>Functions</h2>
 <div class="refsect2">
 <a name="GUPNP-SIMPLE-IGD-ERROR:CAPS"></a><h3>GUPNP_SIMPLE_IGD_ERROR</h3>
 <pre class="programlisting">#define GUPNP_SIMPLE_IGD_ERROR (gupnp_simple_igd_error_quark ())
@@ -167,287 +186,450 @@ The Raw UDP component transmitter class
 </div>
 <hr>
 <div class="refsect2">
-<a name="GUPnPSimpleIgdError"></a><h3>enum GUPnPSimpleIgdError</h3>
-<pre class="programlisting">typedef enum {
-  GUPNP_SIMPLE_IGD_ERROR_EXTERNAL_ADDRESS,
-} GUPnPSimpleIgdError;
-</pre>
-<p>
-Errors coming out of the GUPnPSimpleIGD object.
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody><tr>
-<td><p><a name="GUPNP-SIMPLE-IGD-ERROR-EXTERNAL-ADDRESS:CAPS"></a><span class="term"><code class="literal">GUPNP_SIMPLE_IGD_ERROR_EXTERNAL_ADDRESS</code></span></p></td>
-<td>Error getting the external
-address of the router
-</td>
-</tr></tbody>
-</table></div>
+<a name="gupnp-simple-igd-new"></a><h3>gupnp_simple_igd_new ()</h3>
+<pre class="programlisting"><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="returnvalue">GUPnPSimpleIgd</span></a> *
+gupnp_simple_igd_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>This creates a new <span class="type">GUPnpSimpleIgd</span> object using the special GMainContext</p>
+<div class="refsect3">
+<a name="id-1.2.2.9.4.5"></a><h4>Returns</h4>
+<p> a new <a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a></p>
+<p></p>
+</div>
 </div>
 <hr>
 <div class="refsect2">
-<a name="gupnp-simple-igd-new"></a><h3>gupnp_simple_igd_new ()</h3>
-<pre class="programlisting"><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="returnvalue">GUPnPSimpleIgd</span></a> *    gupnp_simple_igd_new                (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
-<p>
-This creates a new <span class="type">GUPnpSimpleIgd</span> object using the special GMainContext
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody><tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a new <a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a>
-</td>
-</tr></tbody>
-</table></div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gupnp-simple-igd-add-port"></a><h3>gupnp_simple_igd_add_port ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gupnp_simple_igd_add_port           (<em class="parameter"><code><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *protocol</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> external_port</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *local_ip</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> local_port</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> lease_duration</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *description</code></em>);</pre>
-<p>
-This adds a port to the router's forwarding table. The mapping will
-be automatically refreshed by this object until it is either removed with
-<a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-remove-port" title="gupnp_simple_igd_remove_port ()"><code class="function">gupnp_simple_igd_remove_port()</code></a> or the object disapears.
-</p>
-<p>
-If there is a problem, the <a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgd-error-mapping-port" title='The "error-mapping-port" signal'><span class="type">"error-mapping-port"</span></a> signal will
+<a name="gupnp-simple-igd-add-port"></a><h3>gupnp_simple_igd_add_port ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gupnp_simple_igd_add_port (<em class="parameter"><code><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *protocol</code></em>,
+                           <em class="parameter"><code><span class="type">guint16</span> external_port</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *local_ip</code></em>,
+                           <em class="parameter"><code><span class="type">guint16</span> local_port</code></em>,
+                           <em class="parameter"><code><span class="type">guint32</span> lease_duration</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *description</code></em>);</pre>
+<p>This adds a port to the router's forwarding table. The mapping will
+be automatically refreshed by this object until it is either
+removed with <a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-remove-port" title="gupnp_simple_igd_remove_port ()"><code class="function">gupnp_simple_igd_remove_port()</code></a>,
+<code class="function">gupnp_simple_igd_remove_port_local()</code> or the object disapears.</p>
+<p>If there is a problem, the <a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgd-error-mapping-port" title="The “error-mapping-port” signal"><span class="type">“error-mapping-port”</span></a> signal will
 be emitted. If a router is found and a port is mapped correctly,
-<a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgd-mapped-external-port" title='The "mapped-external-port" signal'><span class="type">"mapped-external-port"</span></a> will be emitted. These signals may
-be emitted multiple times if there are multiple routers present.
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
+<a class="link" href="GUPnPSimpleIgd.html#GUPnPSimpleIgd-mapped-external-port" title="The “mapped-external-port” signal"><span class="type">“mapped-external-port”</span></a> will be emitted. These signals may
+be emitted multiple times if there are multiple routers present.</p>
+<div class="refsect3">
+<a name="id-1.2.2.9.5.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
-<td>The <a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> object</td>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>The <a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>protocol</code></em> :</span></p></td>
-<td>the protocol "UDP" or "TCP"</td>
+<td class="parameter_name"><p>protocol</p></td>
+<td class="parameter_description"><p>the protocol "UDP" or "TCP"</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>external_port</code></em> :</span></p></td>
-<td>The port to try to open on the external device,
+<td class="parameter_name"><p>external_port</p></td>
+<td class="parameter_description"><p>The port to try to open on the external device,
 0 means to try a random port if the same port as the local port is already
-taken</td>
+taken</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>local_ip</code></em> :</span></p></td>
-<td>The IP address to forward packets to (most likely the local ip address)</td>
+<td class="parameter_name"><p>local_ip</p></td>
+<td class="parameter_description"><p>The IP address to forward packets to (most likely the local ip address)</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>local_port</code></em> :</span></p></td>
-<td>The local port to forward packets to</td>
+<td class="parameter_name"><p>local_port</p></td>
+<td class="parameter_description"><p>The local port to forward packets to</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>lease_duration</code></em> :</span></p></td>
-<td>The duration of the lease (it will be auto-renewed before it expires). This is in seconds.</td>
+<td class="parameter_name"><p>lease_duration</p></td>
+<td class="parameter_description"><p>The duration of the lease (it will be auto-renewed before it expires). This is in seconds.</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
-<td>The description that will appear in the router's table</td>
+<td class="parameter_name"><p>description</p></td>
+<td class="parameter_description"><p>The description that will appear in the router's table</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
 </div>
+</div>
 <hr>
 <div class="refsect2">
-<a name="gupnp-simple-igd-remove-port"></a><h3>gupnp_simple_igd_remove_port ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gupnp_simple_igd_remove_port        (<em class="parameter"><code><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *protocol</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> external_port</code></em>);</pre>
-<p>
-This tries to remove a port entry from the routers that was previously added
-with <a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port" title="gupnp_simple_igd_add_port ()"><code class="function">gupnp_simple_igd_add_port()</code></a>. There is no indicated of success or failure
+<a name="gupnp-simple-igd-remove-port"></a><h3>gupnp_simple_igd_remove_port ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gupnp_simple_igd_remove_port (<em class="parameter"><code><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self</code></em>,
+                              <em class="parameter"><code>const <span class="type">gchar</span> *protocol</code></em>,
+                              <em class="parameter"><code><span class="type">guint</span> external_port</code></em>);</pre>
+<p>This tries to remove a port entry from the routers that was previously added
+with <a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port" title="gupnp_simple_igd_add_port ()"><code class="function">gupnp_simple_igd_add_port()</code></a>. There is no indicated of success or failure
 it is a best effort mechanism. If it fails, the bindings will disapears after
-the lease duration set when the port where added.
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
+the lease duration set when the port where added.</p>
+<div class="refsect3">
+<a name="id-1.2.2.9.6.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
-<td>The <a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> object</td>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>The <a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>protocol</code></em> :</span></p></td>
-<td>the protocol "UDP" or "TCP" as given to
-<a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port" title="gupnp_simple_igd_add_port ()"><code class="function">gupnp_simple_igd_add_port()</code></a>
-</td>
+<td class="parameter_name"><p>protocol</p></td>
+<td class="parameter_description"><p>the protocol "UDP" or "TCP" as given to
+<a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port" title="gupnp_simple_igd_add_port ()"><code class="function">gupnp_simple_igd_add_port()</code></a></p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>external_port</code></em> :</span></p></td>
-<td>The port to try to open on the external device as given to
-<a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port" title="gupnp_simple_igd_add_port ()"><code class="function">gupnp_simple_igd_add_port()</code></a>
-</td>
+<td class="parameter_name"><p>external_port</p></td>
+<td class="parameter_description"><p>The port to try to open on the external device as given to
+<a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port" title="gupnp_simple_igd_add_port ()"><code class="function">gupnp_simple_igd_add_port()</code></a></p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
 </div>
+</div>
 <hr>
 <div class="refsect2">
-<a name="gupnp-simple-igd-delete-all-mappings"></a><h3>gupnp_simple_igd_delete_all_mappings ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gupnp_simple_igd_delete_all_mappings
-                                                        (<em class="parameter"><code><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self</code></em>);</pre>
-<p>
-Removes all mappings and prevents other from being formed
-Should only be called by the dispose function of subclasses
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
+<a name="gupnp-simple-igd-delete-all-mappings"></a><h3>gupnp_simple_igd_delete_all_mappings ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+gupnp_simple_igd_delete_all_mappings (<em class="parameter"><code><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self</code></em>);</pre>
+<p>Removes all mappings and prevents other from being formed
+Should only be called by the dispose function of subclasses</p>
+<div class="refsect3">
+<a name="id-1.2.2.9.7.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.2.9.7.6"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the object can be disposed, <code class="literal">FALSE</code> otherwise</p>
+<p></p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GUPnPSimpleIgd.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="GUPnPSimpleIgd-struct"></a><h3>struct GUPnPSimpleIgd</h3>
+<pre class="programlisting">struct GUPnPSimpleIgd;</pre>
+<p>All members are private, access them using methods and properties</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GUPnPSimpleIgdClass"></a><h3>GUPnPSimpleIgdClass</h3>
+<pre class="programlisting">typedef struct {
+  GObjectClass parent_class;
+
+  /*virtual functions */
+
+  void (*add_port) (GUPnPSimpleIgd *self,
+      const gchar *protocol,
+      guint16 external_port,
+      const gchar *local_ip,
+      guint16 local_port,
+      guint32 lease_duration,
+      const gchar *description);
+
+  void (*remove_port) (GUPnPSimpleIgd *self,
+      const gchar *protocol,
+      guint external_port);
+
+  void (*remove_port_local) (GUPnPSimpleIgd *self,
+      const gchar *protocol,
+      const gchar *local_ip,
+      guint16 local_port);
+} GUPnPSimpleIgdClass;
+</pre>
+<p>The Raw UDP component transmitter class</p>
+<div class="refsect3">
+<a name="id-1.2.2.10.3.5"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="struct_members_name">
+<col class="struct_members_description">
+<col width="200px" class="struct_members_annotations">
+</colgroup>
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
-<td>a <a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a>
-</td>
+<td class="struct_member_name"><p><span class="type">GObjectClass</span> <em class="structfield"><code><a name="GUPnPSimpleIgdClass.parent-class"></a>parent_class</code></em>;</p></td>
+<td class="struct_member_description"><p>Our parent</p></td>
+<td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the object can be disposed, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise</td>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="GUPnPSimpleIgdClass.add-port"></a>add_port</code></em> ()</p></td>
+<td class="struct_member_description"><p>An implementation of the add_port function</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="GUPnPSimpleIgdClass.remove-port"></a>remove_port</code></em> ()</p></td>
+<td class="struct_member_description"><p>An implementation of the delete_port function</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="GUPnPSimpleIgdClass.remove-port-local"></a>remove_port_local</code></em> ()</p></td>
+<td class="struct_member_description"> </td>
+<td class="struct_member_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GUPnPSimpleIgdError"></a><h3>enum GUPnPSimpleIgdError</h3>
+<p>Errors coming out of the GUPnPSimpleIGD object.</p>
+<div class="refsect3">
+<a name="id-1.2.2.10.4.4"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody><tr>
+<td class="enum_member_name"><p><a name="GUPNP-SIMPLE-IGD-ERROR-EXTERNAL-ADDRESS:CAPS"></a>GUPNP_SIMPLE_IGD_ERROR_EXTERNAL_ADDRESS</p></td>
+<td class="enum_member_description">
+<p>Error getting the external
+address of the router</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
 </div>
 </div>
 <div class="refsect1">
 <a name="GUPnPSimpleIgd.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
-<a name="GUPnPSimpleIgd--main-context"></a><h3>The <code class="literal">"main-context"</code> property</h3>
-<pre class="programlisting">  "main-context"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>              : Read</pre>
+<a name="GUPnPSimpleIgd--main-context"></a><h3>The <code class="literal">“main-context”</code> property</h3>
+<pre class="programlisting">  “main-context”             <span class="type">gpointer</span></pre>
 <p>This GMainContext will be used for all async activities.</p>
+<p>Flags: Read</p>
 </div>
 </div>
 <div class="refsect1">
 <a name="GUPnPSimpleIgd.signal-details"></a><h2>Signal Details</h2>
 <div class="refsect2">
-<a name="GUPnPSimpleIgd-error-mapping-port"></a><h3>The <code class="literal">"error-mapping-port"</code> signal</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        error,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *proto,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>           external_port,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *local_ip,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>           local_port,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *description,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)          : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-DETAILED:CAPS"><code class="literal">Has Details</code></a></pre>
-<p>
-This means that mapping a port on a specific IGD has failed (it may still
-succeed on other IGDs on the network).
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
+<a name="GUPnPSimpleIgd-context-available"></a><h3>The <code class="literal">“context-available”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+user_function (<a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self,
+               <span class="type">GObject</span>        *context,
+               <span class="type">gpointer</span>        user_data)</pre>
+<p>This is to allow the application to control which <span class="type">GUPnPContext</span> this
+client should use. If the application connects to this signal, it controls
+if a context will be used by changing the return value of the signal
+handler.</p>
+<div class="refsect3">
+<a name="id-1.2.2.12.2.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
-<td>
-<a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> that emitted the signal</td>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> that emitted the signal</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>
-</td>
+<td class="parameter_name"><p>context</p></td>
+<td class="parameter_description"><p>a <span class="type">GUPnPContext</span></p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
-<td>The requested protocol</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>external_port</code></em> :</span></p></td>
-<td>the external port requested in <a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port" title="gupnp_simple_igd_add_port ()"><code class="function">gupnp_simple_igd_add_port()</code></a>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>local_ip</code></em> :</span></p></td>
-<td>internal ip this is forwarded to</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>local_port</code></em> :</span></p></td>
-<td>the local port</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
-<td>the passed description</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
-<td>user data set when the signal handler was connected.</td>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
 </div>
+<div class="refsect3">
+<a name="id-1.2.2.12.2.6"></a><h4>Returns</h4>
+<p> FALSE if the context should be used or TRUE if it should
+be ignored</p>
+<p></p>
+</div>
+<p>Flags: Run Last</p>
+</div>
 <hr>
 <div class="refsect2">
-<a name="GUPnPSimpleIgd-mapped-external-port"></a><h3>The <code class="literal">"mapped-external-port"</code> signal</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *proto,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *external_ip,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *replaces_external_ip,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>           external_port,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *local_ip,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>           local_port,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *description,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)                 : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
-<p>
-This signal means that an IGD has been found that that adding a port
-mapping has succeeded.
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
+<a name="GUPnPSimpleIgd-error-mapping-port"></a><h3>The <code class="literal">“error-mapping-port”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self,
+               <span class="type">GError</span>         *error,
+               <span class="type">gchar</span>          *proto,
+               <span class="type">guint</span>           external_port,
+               <span class="type">gchar</span>          *local_ip,
+               <span class="type">guint</span>           local_port,
+               <span class="type">gchar</span>          *description,
+               <span class="type">gpointer</span>        user_data)</pre>
+<p>This means that mapping a port on a specific IGD has failed (it may still
+succeed on other IGDs on the network).</p>
+<div class="refsect3">
+<a name="id-1.2.2.12.3.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
-<td>
-<a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> that emitted the signal</td>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> that emitted the signal</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
-<td>the requested protocol ("UDP" or "TCP")</td>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a <span class="type">GError</span></p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>external_ip</code></em> :</span></p></td>
-<td>the external IP</td>
+<td class="parameter_name"><p>proto</p></td>
+<td class="parameter_description"><p>The requested protocol</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>replaces_external_ip</code></em> :</span></p></td>
-<td>if this mapping replaces another mapping,
-this is the old external IP</td>
+<td class="parameter_name"><p>external_port</p></td>
+<td class="parameter_description"><p>the external port requested in <a class="link" href="GUPnPSimpleIgd.html#gupnp-simple-igd-add-port" title="gupnp_simple_igd_add_port ()"><code class="function">gupnp_simple_igd_add_port()</code></a></p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>external_port</code></em> :</span></p></td>
-<td>the external port that was allocated</td>
+<td class="parameter_name"><p>local_ip</p></td>
+<td class="parameter_description"><p>internal ip this is forwarded to</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>local_ip</code></em> :</span></p></td>
-<td>IP address that the router should forward the packets to. It
-could be the address of another machine on the local network</td>
+<td class="parameter_name"><p>local_port</p></td>
+<td class="parameter_description"><p>the local port</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>local_port</code></em> :</span></p></td>
-<td>the local port</td>
+<td class="parameter_name"><p>description</p></td>
+<td class="parameter_description"><p>the passed description</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
-<td>the user's selected description</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
-<td>user data set when the signal handler was connected.</td>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
+</div>
+<p>Flags: Has Details</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GUPnPSimpleIgd-mapped-external-port"></a><h3>The <code class="literal">“mapped-external-port”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> *self,
+               <span class="type">gchar</span>          *proto,
+               <span class="type">gchar</span>          *external_ip,
+               <span class="type">gchar</span>          *replaces_external_ip,
+               <span class="type">guint</span>           external_port,
+               <span class="type">gchar</span>          *local_ip,
+               <span class="type">guint</span>           local_port,
+               <span class="type">gchar</span>          *description,
+               <span class="type">gpointer</span>        user_data)</pre>
+<p>This signal means that an IGD has been found that that adding a port
+mapping has succeeded.</p>
+<div class="refsect3">
+<a name="id-1.2.2.12.4.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p><a class="link" href="GUPnPSimpleIgd.html" title="GUPnPSimpleIgd"><span class="type">GUPnPSimpleIgd</span></a> that emitted the signal</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>proto</p></td>
+<td class="parameter_description"><p>the requested protocol ("UDP" or "TCP")</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>external_ip</p></td>
+<td class="parameter_description"><p>the external IP</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>replaces_external_ip</p></td>
+<td class="parameter_description"><p>if this mapping replaces another mapping,
+this is the old external IP</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>external_port</p></td>
+<td class="parameter_description"><p>the external port that was allocated</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>local_ip</p></td>
+<td class="parameter_description"><p>IP address that the router should forward the packets to. It
+could be the address of another machine on the local network</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>local_port</p></td>
+<td class="parameter_description"><p>the local port</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>description</p></td>
+<td class="parameter_description"><p>the user's selected description</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
 </div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.21</div>
 </body>
 </html>

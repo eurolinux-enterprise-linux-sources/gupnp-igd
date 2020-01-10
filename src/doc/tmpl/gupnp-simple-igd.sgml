@@ -9,12 +9,10 @@ GUPnPSimpleIgd
 
 </para>
 
-
 <!-- ##### SECTION See_Also ##### -->
 <para>
 
 </para>
-
 
 <!-- ##### SECTION Stability_Level ##### -->
 
@@ -27,6 +25,15 @@ GUPnPSimpleIgd
 
 </para>
 
+
+<!-- ##### SIGNAL GUPnPSimpleIgd::context-available ##### -->
+<para>
+
+</para>
+
+@gupnpsimpleigd: the object which received the signal.
+@arg1: 
+@Returns: 
 
 <!-- ##### SIGNAL GUPnPSimpleIgd::error-mapping-port ##### -->
 <para>
@@ -68,6 +75,7 @@ GUPnPSimpleIgd
 @parent_class: 
 @add_port: 
 @remove_port: 
+@remove_port_local: 
 
 <!-- ##### MACRO GUPNP_SIMPLE_IGD_ERROR ##### -->
 <para>

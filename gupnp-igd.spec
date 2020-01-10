@@ -1,8 +1,8 @@
 %{!?python_sitearch: %global python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
 
 Name:           gupnp-igd
-Version:        0.2.2
-Release:        3%{?dist}
+Version:        0.2.4
+Release:        1%{?dist}
 Summary:        Library to handle UPnP IGD port mapping        
 
 Group:          System Environment/Libraries
@@ -11,9 +11,9 @@ URL:            http://live.gnome.org/GUPnP
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.2/%{name}-%{version}.tar.xz
 
 BuildRequires:  glib2-devel
+BuildRequires:  gobject-introspection-devel
 BuildRequires:  gupnp-devel
 BuildRequires:  pygtk2-devel
-
 
 %description
 %{name} is a library to handle UPnP IGD port mapping.
@@ -47,10 +47,10 @@ developing applications that use %{name}.
 
 
 %build
-%configure --disable-static
+%configure --disable-static --enable-python --enable-introspection=yes
 # quite rpmlint error about unused-direct-shlib-dependency
 sed -i -e 's! -shared ! -Wl,--as-needed\0!g' libtool
-make %{?_smp_mflags}
+LDFLAGS="$RPM_LD_FLAGS -lgobject-2.0" make %{?_smp_mflags}
 
 
 %install
@@ -67,6 +67,7 @@ find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
 %files
 %doc README COPYING
 %{_libdir}/*.so.*
+%{_libdir}/girepository-1.0/GUPnPIgd-1.0.typelib
 
 
 %files python
@@ -80,9 +81,15 @@ find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/%{name}-1.0*.pc
 %{_datadir}/gtk-doc/html/%{name}/
+%{_datadir}/gir-1.0/GUPnPIgd-1.0.gir
 
 
 %changelog
+* Thu Mar 02 2017 Bastien Nocera <bnocera@redhat.com> - 0.2.4-1
++ gupnp-igd-0.2.4-1
+- Update to 0.2.4
+Resolves: #1386991
+
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 0.2.2-3
 - Mass rebuild 2014-01-24
 

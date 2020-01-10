@@ -9,12 +9,10 @@ GUPnPSimpleIgdThread
 
 </para>
 
-
 <!-- ##### SECTION See_Also ##### -->
 <para>
 
 </para>
-
 
 <!-- ##### SECTION Stability_Level ##### -->
 
@@ -33,7 +31,6 @@ GUPnPSimpleIgdThread
 
 </para>
 
-@parent_class: 
 
 <!-- ##### FUNCTION gupnp_simple_igd_thread_new ##### -->
 <para>
