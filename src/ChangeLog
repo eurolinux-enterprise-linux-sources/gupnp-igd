@@ -1,0 +1,952 @@
+commit 4be83cf8cd41fbf7c663c0cdd3563dba55d43c58
+Author: Jens Georg <mail@jensge.org>
+Date:   Fri Nov 23 14:27:58 2012 +0100
+
+    Version 0.2.2
+
+commit 4f0de3b51cdaa4a062576e2aa45f5e1c990da440
+Author: Jens Georg <mail@jensge.org>
+Date:   Fri Nov 23 14:50:48 2012 +0100
+
+    Append environment's LD_LIBRARY_PATH if set
+    
+    Fixes running tests in make check.
+
+commit 71624fbb7be2266298e33a45028ce0b5c1a54bd0
+Author: Ryan Lortie <desrt@desrt.ca>
+Date:   Fri Nov 9 10:01:44 2012 -0500
+
+    gir build: depend on library for 'make -j' safety
+    
+    Don't attempt to build the .gir file before the .la is done.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=687995
+
+commit f23a342a4a1a437fb17b50faa2c7530323f70266
+Author: Ryan Lortie <desrt@desrt.ca>
+Date:   Fri Nov 9 09:57:11 2012 -0500
+
+    build: link against -lgobject, not just -lglib
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=687993
+
+commit 7dad9069646ec95be843be175b32946f3a056e44
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Nov 18 13:15:15 2011 -0200
+
+    Version 0.2.1.1
+
+commit 6d5ee5ab7034501b4f167bc9034139523d63c37a
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Mon Nov 7 17:44:01 2011 -0500
+
+    Version 0.2.1
+
+commit 9864bdcfe5c7c88aeaf53a127c741481a5cdf84d
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Mon Nov 7 17:41:20 2011 -0500
+
+    Restore the "main-context" property as read-only
+    
+    Farsight2 used it to put a timer in the thread's context
+
+commit b9327c761508906037029b5aaa2893dcae01c543
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Mon Nov 7 13:12:39 2011 -0500
+
+    Update python def files
+
+commit 2d1ff9e9af5adaf04b3ded5bf656092e9e023859
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Mon Nov 7 13:12:32 2011 -0500
+
+    Version 0.2.0.1
+
+commit 5bb4b14e5ce9670bdb220b66553ccc1dee4408a8
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Mon Nov 7 13:01:36 2011 -0500
+
+    Version 0.2.0
+
+commit 01095d35333456a73b0ab34dc5d58348c1703d25
+Author: Jens Georg <mail@jensge.org>
+Date:   Sat Nov 5 12:25:44 2011 +0100
+
+    Delay quitting of main loop through idle
+    
+    Prevents the leaking of GUPnP*Igd when running multiple test-cases
+    which causes spurious warnings about "Connection terminated
+    unexpectedly".
+
+commit 64c732881c7db22da4ebe850099fac7525b74e5b
+Author: Jens Georg <mail@jensge.org>
+Date:   Sat Nov 5 12:06:29 2011 +0100
+
+    Don't leak control points
+    
+    _manage_control_points calls add_ref, so it's necessary to drop the
+    initial reference after the call.
+
+commit c157ab0dcf557d6faf6e0622a86729f483419556
+Author: Jens Georg <mail@jensge.org>
+Date:   Sat Nov 5 12:08:08 2011 +0100
+
+    Delete fake WAN server
+    
+    Prevent wrong answers from simulated UPnP devices originating in a
+    previous test-case.
+
+commit 1c51ad2a9520c9bf9b0624eb46319a8ab9ff83f0
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Nov 4 23:08:08 2011 +0000
+
+    Change the API to not sure GMainContext directly like before,
+    but instead force the same GMainContext to be pushed on the thread
+    for any call to the API.
+
+commit 30034b2813b50e417321f8a0b4caf5aae6631791
+Author: Olivier Crête <tester@tester.ca>
+Date:   Wed Jun 8 09:02:40 2011 -0400
+
+    Add Olivier to maintainers in DOAP file
+
+commit 5ecbd42280e3e8874645a327779ff5afaf9267c8
+Author: Zeeshan Ali (Khattak) <zeeshanak@gnome.org>
+Date:   Wed Jun 8 15:05:56 2011 +0300
+
+    Add a DOAP file
+    
+    Olivier should be in the maintainer's list for sure but I don't know
+    his GNOME git account name.
+
+commit 3bc5e7563c773171a4d5eb9b447f885ae69eb9d2
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed May 4 20:08:11 2011 -0400
+
+    Version 0.1.11.1
+
+commit af868db87145404f2689651b818aac8ad670b0de
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed May 4 20:05:17 2011 -0400
+
+    Version 0.1.11
+
+commit 7019f8d62408b429702e4983c7c461c9338ac817
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed May 4 18:42:09 2011 -0400
+
+    Disable introspection really if disabled
+
+commit 2a87adf8a3a3f26fb5b24b8636a4500890f42009
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed May 4 19:12:34 2011 -0400
+
+    Version 0.1.10.1
+
+commit cb6011eca0fb18e98cd671630751e465e2095404
+Author: Laurent Bigonville <l.bigonville@edpnet.be>
+Date:   Wed May 4 17:42:59 2011 -0400
+
+    Use variable for glib-genmarshal
+    
+    Otherwise the build fails if it is installed outside of the path
+
+commit 8ae70b822d47b3b0f57aa16bc34070ca270b92f4
+Author: Laurent Bigonville <l.bigonville@edpnet.be>
+Date:   Wed May 4 17:36:24 2011 -0400
+
+    Remove -lpython from the python module
+    
+    It seems that debian statically links their python executable
+
+commit 485140bd9d280d8797cfe702e6598077801385bd
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Apr 26 12:51:53 2011 -0400
+
+    Version 0.1.10
+
+commit 030c46e62da61821a3d8c11a7f7756bf46595d0d
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed Apr 6 17:45:43 2011 -0400
+
+    Port to introspection 0.10
+
+commit 7fc79bf32595afca2c75fe1b7a3e4df583a3d7dc
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed Apr 6 17:28:58 2011 -0400
+
+    Version 0.1.9.1
+
+commit 0436ef6ef5efc9942a576057d65255bbdfcbb68a
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed Apr 6 17:28:16 2011 -0400
+
+    Version 0.1.9
+
+commit 198ac3e925f4b4f4e0f9842d1ff18d1e02955582
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed Apr 6 17:25:55 2011 -0400
+
+    Push context as thread default context if it isn't already
+    
+    Works around gnome bug:
+    https://bugzilla.gnome.org/show_bug.cgi?id=646957
+
+commit 388bb9efd752652dcd3c2588cc5451ddca1571d1
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Jan 17 16:09:43 2011 -0500
+
+    Version 0.1.8.1
+
+commit 30c8912253ae2b412a0e4b50d55fc4af00d20376
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Jan 17 15:22:03 2011 -0500
+
+    Version 0.1.8
+
+commit fd262c1018a50f48d76f3734b00366dd74dadb12
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Jan 17 15:47:02 2011 -0500
+
+    Work around bug in GIR installation pkgconfig stuff
+
+commit 7b94b5b4d57feec7fc8523c675a2963b3d5c9622
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Jan 17 15:10:15 2011 -0500
+
+    Test GError on invalid ip
+
+commit 7c1e02a931cb249ac17a4a5663f1bc86f5371aca
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Jan 17 14:54:51 2011 -0500
+
+    Correctly give GError if the local router gives a bogus reply
+
+commit 251a7c4bf1817a98140ab1ca80a0c636945d65bb
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Dec 20 16:27:12 2010 +0530
+
+    simpleigdthread: Add typecast to make newer GCC happy
+    
+    Report by Peter Robinson
+    http://bugzilla.openedhand.com/show_bug.cgi?id=2209
+
+commit 0e0eb4cce8064288c9e28ddfc7f59a8b13ac305c
+Author: Dominique Leuenberger <dimstar@opensuse.org>
+Date:   Sat Sep 11 22:32:24 2010 +0200
+
+    Fix build with make 3.82. Make is not bash.
+
+commit fd15c58717194dfdb04e7d8cff84f80eb9f60930
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Thu Aug 19 13:59:53 2010 -0400
+
+    autogen.sh: Add some ACLOCAL variables to make jhbuild happy
+
+commit d3453a7c68578a881e5eb43c25d2fa8dc65f71b7
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Aug 2 14:31:28 2010 +0200
+
+    Explain more clearly what local_ip means
+
+commit bba6d3ea85419d410d2f60a0e08eae6a745e5108
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri May 21 15:25:31 2010 -0400
+
+    Add GObject Introspection support
+
+commit c84a41f8b84355ccad0525aa0b494cc5f17e8b9c
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri May 21 14:58:11 2010 -0400
+
+    Make automake 1.11 happy with python
+
+commit cbb4192734fff97a0c51c5e6b2e03cccc7808f70
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Thu May 20 12:48:15 2010 -0400
+
+    Update news to 0.1.7
+
+commit eeeb8b9ab4cdcb6455181381bda7a584f75e6a66
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed May 19 19:32:11 2010 -0400
+
+    Version 0.1.7.1
+
+commit 7369a27f7163dc61a6098248506af993bf953cd5
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed May 19 19:20:47 2010 -0400
+
+    Version 0.1.7
+
+commit 19dd4a3421790e6d6476f642e7a44fd9b186e3bc
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed May 19 19:20:29 2010 -0400
+
+    Enable silent rules with automake 1.11
+
+commit 56a7aa87fab7aee066b0c9f8339f280bda068803
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed May 19 17:43:54 2010 -0400
+
+    Fix race if g_main_loop_quit() is called just before g_main_loop_run()
+
+commit 6be91adb0fad3d6b104e753071ae6a347382d51e
+Author: Sjoerd Simons <sjoerd.simons@collabora.co.uk>
+Date:   Sat May 8 19:17:48 2010 +0100
+
+    override the main-context construct time property in the constructor
+
+commit 093769ea795305a4b987ba48bfbbdfcff3cb20a2
+Author: Louis-Francis Ratté-Boulianne <louis-francis.ratte-boulianne@collabora.co.uk>
+Date:   Mon Feb 1 13:16:27 2010 -0500
+
+    Fixed installation of python bindings
+
+commit 9ab882c184bd62798b50955b5b8c1c9844356dbe
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Jan 18 19:08:05 2010 -0500
+
+    Add test for empty ip address
+
+commit fb86148ce78152ad6321f44e870616d451704257
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Jan 18 18:52:44 2010 -0500
+
+    Test invalid IP address
+
+commit f7ea6556bf1ff49f0ffa9ac8056daefa92c17e42
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Jan 18 18:55:47 2010 -0500
+
+    Remove empty lines
+
+commit 1d63b3eb214a97319e01b916d108d06c9759dbae
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Jan 18 18:50:45 2010 -0500
+
+    Validate returned IP addresses
+
+commit 2eb6f873803dd45e92aac148aed1c0d90834df28
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Dec 28 13:30:22 2009 -0500
+
+    Version 0.1.6.1
+
+commit e848aaedd550c44ac75b22620f867e3286627305
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Dec 28 13:28:00 2009 -0500
+
+    Version 0.1.6
+
+commit 4185e4b04aaa0e5f510335915ca02993fb95934d
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Dec 28 13:27:43 2009 -0500
+
+    Add generated pything bindings
+
+commit 086bceabbe41fe21a8bf7ee6e8394974bb416680
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Dec 28 13:26:20 2009 -0500
+
+    Generate ChangeLog from git if possible
+
+commit 10f0a9739bc54616cee350dcb4d15cbf8147745c
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Dec 28 13:13:21 2009 -0500
+
+    Correct include path in python bindings Makefile.am
+
+commit 357da5e8aa29de2c903dddd020c6673e05daee63
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Dec 28 13:10:57 2009 -0500
+
+    Add python override file to package
+
+commit b27143dd61ba569fe8346442ba1961c9b274d541
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Dec 28 13:08:13 2009 -0500
+
+    Remove useless definition
+
+commit f564cb109883b8dca80262e014332e60099c7bb7
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Dec 28 13:05:04 2009 -0500
+
+    Correct filenames in python Makefile
+
+commit d445be644690ea43f6d6ea3a7917aef6e88dac8c
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Dec 28 12:58:43 2009 -0500
+
+    Remove useless variable
+
+commit 9826df4ffe2552f9d9f26c985c151f356f94a52c
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Dec 28 12:56:37 2009 -0500
+
+    Make python bindings optional
+
+commit 27f8fcd219ed352266984c3caf9dc30952714e9b
+Author: Louis-Francis Ratté-Boulianne <Louis-Francis.Ratte-Boulianne@collabora.co.uk>
+Date:   Thu Jul 2 15:08:55 2009 -0400
+
+    Added python bindings
+
+commit c491b3b36da4324fd6bbfa03d6417c3a7eb46233
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Dec 5 15:41:34 2009 +0530
+
+    Version 0.1.5.1
+
+commit a3a01f307126b7b4c5ed8d750e6591ed7428fca9
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Dec 5 15:37:13 2009 +0530
+
+    Version 0.1.5
+
+commit f8c9227c0f267b494786ec52644c73b9e80f256f
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Dec 5 11:27:40 2009 +0530
+
+    Require gupnp 0.13.2
+
+commit 787aebf6d43e9a157f39d5e3f85054b20cca6bc2
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Nov 23 19:07:33 2009 +0100
+
+    Port to use GUPnPContextManager
+
+commit c3cb79ce720d9a5f7c9208ea2335bf819c0ef22c
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Nov 13 15:00:00 2009 -0500
+
+    Version 0.1.4.1
+
+commit 35282461563bccdd55615d40f34b02532e7dac97
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Nov 13 14:42:28 2009 -0500
+
+    Version 0.1.4
+
+commit afb8f849ffce796cf8f02b8227a7020e2c47f9d2
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Nov 13 14:47:34 2009 -0500
+
+    Make it build with 0.12 correctly
+
+commit d5dd3215559642ee6e19c6362e72f35c5c2d4b6e
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Thu Oct 8 16:47:03 2009 -0400
+
+    Use new api to create a root device if possible
+    
+    The configure file also checks the the version so it can still compile
+    with older versions of GUPnP.
+
+commit d0cb366c874790154a9a34665c5be7d7072ba624
+Author: Olivier Crête <tester@tester.ca>
+Date:   Mon Sep 21 09:47:09 2009 -0400
+
+    Don't try to join non-existing thread
+
+commit f492e710ed5cac4de7800c38e9b1a61e2299b7b4
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Thu Jun 25 20:01:44 2009 -0400
+
+    Replace weak refs with custom code in threaded case
+
+commit d3fc427e0b4c172106eeb70683bf641a988a0159
+Author: Laurent Bigonville <bigon@bigon.be>
+Date:   Thu Jun 18 17:27:18 2009 +0200
+
+    libgupnp-igd/Makefile.am: Add -export-symbols-regex
+    
+    libgupnp-igd/Makefile.am: Add -export-symbols-regex
+
+commit d8463211f324dd15c03c08b022c799a6a97ff55a
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed Jun 10 16:42:47 2009 -0400
+
+    Add G_SLICE=debug-blocks to unit tests
+
+commit 4833458e856d259707f0b761892d3d90f3d6d74b
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Jun 8 20:29:17 2009 -0400
+
+    Version 0.1.3.1
+
+commit 33e94046f58e151ffa502eda8ea50c8432f0fd51
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Jun 8 20:28:04 2009 -0400
+
+    Version 0.1.3
+
+commit 6610b054b005d350f2c7a80d086131ff93654ac2
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Jun 8 19:39:55 2009 -0400
+
+    Separate thread data
+    
+    The data used in the thread function could be needed past the lifetime of the object
+    if the dispose/finalize are called from this thread.
+
+commit e1d03127403bb263828542b59a953992f49fe901
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 17:02:29 2009 -0400
+
+    Unref mainloop after usage in test
+
+commit 01b0dc33dc958e71d04317daacc3f98f72f118f1
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 16:42:37 2009 -0400
+
+    Remove duplicate call to free_proxymapping
+
+commit c818bfb744355fa53023fc68614b27eea8274fe3
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 16:42:25 2009 -0400
+
+    Don't unref proxy before stopping mappings on it
+
+commit 4e8157382904bca00ef58e07147ca6b625dceeff
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 16:40:31 2009 -0400
+
+    Centralise calls to stop_proxymapping to free_proxymapping
+
+commit 6d1bd9c8f3eb5a77236fc95e9e99b031b5cf9f2d
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 16:38:51 2009 -0400
+
+    Stop proxymappings when freeing mappings
+
+commit 23a9261f39da969a9c7df2d31ad91341893ba9d9
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 15:49:37 2009 -0400
+
+    Add test for delete on dispose
+
+commit 5e2858a986c6d20537f543186d50fd5b6b97bfa4
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 15:49:12 2009 -0400
+
+    Remove duplicate idle function
+
+commit 3807be9b3f0cbb668dcce2b60fe443be0d38ffb0
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 15:18:09 2009 -0400
+
+    Wait until all mappings have been deleted before stopping thread
+
+commit 1eb76cfca6922a05f29819ced8b453181b4c7e64
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 14:57:28 2009 -0400
+
+    Remove un-necessary quit_loop variable
+    
+    The idle function will do the same thing, we can add it into the context
+    before loop has been created.
+
+commit 2bf04c7225e74f1531812f0d4849713784f5e5fc
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 13:28:02 2009 -0400
+
+    Don't try to join if dispose is called from the main internal thread
+
+commit be4ed8470c0138eae868b547f2f312c2a5fbe9d1
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 12:49:43 2009 -0400
+
+    Split out mapping deletings from the dispose call
+
+commit efc56858e3f5cb8ccdc8a83c73b031a34497aeda
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 12:38:27 2009 -0400
+
+    Glib 2.14 require, sono need to define G_GNUC_MAY_ALIAS
+
+commit 2fc5668f5c0b7684e1dd4243408c620ec80f2bc4
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 12:30:13 2009 -0400
+
+    Delete mappings on dispose
+    
+    It actually re-references the object if there are still mappings so they
+    can be properly disposed of
+
+commit f2ba092a0267a5cbbc90a3ff79a60dc844cda5ac
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Sat Jun 6 12:11:34 2009 -0400
+
+    Delete the mapping on when freeing the local structure
+
+commit f2763fa8288a8ce0f830529c0a5352cf011c92d5
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Jun 1 17:25:05 2009 -0400
+
+    Don't add renew timeout if the lease duration is 0
+
+commit c2354e46caf928aa769f1dbd1fc1c759a44628a1
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed May 27 16:09:39 2009 -0400
+
+    Stop renew timeout source when stopping a proxymapping
+
+commit 574d01a1d841e13dafda3d44b901c01fe9083efa
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon May 25 13:12:34 2009 -0400
+
+    Add some asserts
+
+commit f0590109d8923abbd13884c49a1f3f2a43023fc8
+Merge: e1822e1 5a0bd75
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Wed Apr 29 12:33:49 2009 -0400
+
+    Merge branch 'master' of ssh://gitserver@git.gupnp.org/gupnp-igd
+
+commit e1822e1af747b71d504bfb134df40da2439394f2
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Apr 28 20:15:59 2009 -0400
+
+    Post-release version bump
+
+commit 704735bdae1ff01b01ebc22f96656c529b9225c3
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Apr 28 20:14:14 2009 -0400
+
+    Version 0.1.2
+
+commit 5a0bd7522df7faf50efa0258ade402d827050189
+Author: Ross Burton <ross@linux.intel.com>
+Date:   Mon Apr 27 20:58:44 2009 +0100
+
+    Fix pkg-config paths (#1570)
+
+commit b2db618b95ef4df1baf287099e26245545fd41ee
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 24 15:35:15 2009 -0400
+
+    Update marshaller for updated error
+
+commit 796915d422703d2c444483f5a9d313daaccfd574
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Thu Apr 23 17:28:58 2009 -0400
+
+    Update test to match updated error signal
+
+commit 09a5b0817e347b16a81c974c1373a1420a883795
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Thu Apr 23 16:39:26 2009 -0400
+
+    Add the local ip/port in error signal
+
+commit 03277982174f26299e2af28a5ca52f71dc9f2d4e
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Apr 20 14:54:43 2009 -0400
+
+    Don't emit the ip changed signal if it hasn't changed
+
+commit 6d3174678b624b537e9c79d9889747d3ffbd22e7
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Apr 20 14:46:20 2009 -0400
+
+    Cancel preview renew action if it has not finished before the next one
+
+commit 1dd0c1f2c84766571cead1d629b895ba2d1ff66c
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Apr 20 14:28:50 2009 -0400
+
+    Forget pm action pointer on renew success or failure
+
+commit e7d37710332f4b787647501fa035b12daf9e1706
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 19:16:59 2009 -0400
+
+    Add test for no-conflict random port mode
+
+commit dcc5d5e009bc431daebcd36ade1d9444aa0c2d2b
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 18:52:00 2009 -0400
+
+    Remove duplicated line
+
+commit d0279136fbe8e3fd450ebbb72bcc2038036f3a8e
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 18:49:22 2009 -0400
+
+    Add uninstalled lib to the LD_LIBRARY_PATH in for tests
+
+commit 44cbfcb2c782013b06bba62ccfd7c0aed5f62015
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 18:38:16 2009 -0400
+
+    Add test for random port mode
+
+commit f9e731ec84c499921501507689e8ae99301040f5
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Mon Apr 20 14:24:07 2009 -0400
+
+    Offer only one PPP connection in test
+
+commit 2f493c010f5a49baaa8d41b13c8d5f120fae4d21
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 18:26:48 2009 -0400
+
+    Make the internal port into a define
+
+commit c523797e9c5c306e169562a7c3dbe33978c66cc2
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 18:26:02 2009 -0400
+
+    Allow the requested port to change
+
+commit 7bcd1ca5c57f51fb743cceff2de8a5fcf9e5a177
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 18:05:11 2009 -0400
+
+    Renamed callback to match signal name
+
+commit bc320d41be0c13f5be02c0d56c465c2fd1bffe92
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 17:51:48 2009 -0400
+
+    If a random port is requested, pick a random port on failure
+
+commit 5461cc76386632dbbb4d4cc61752d9b7d37d2184
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 17:47:48 2009 -0400
+
+    Use factored out function in renew too
+
+commit 1659f23a5c0c48fc8996677f4d460751f2cc2f19
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 17:45:50 2009 -0400
+
+    Factor out the call to AddPortMapping
+
+commit e5554106a0e2ebfbe13125743a4fb05cef843e72
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 17:39:55 2009 -0400
+
+    Remove unused enum
+
+commit 0583a664bb2d5f97198b046743d6a4036ab5b38f
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 16:22:13 2009 -0400
+
+    Separate actual and requested external ports
+
+commit 1ce0ee522ce48f40e79693b9dca7068c9c59dac3
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 17:29:19 2009 -0400
+
+    Remove useless call
+
+commit b35ca683ea5239c54026ac6257fbd348ce29536a
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 17:17:40 2009 -0400
+
+    Print error domain/code in examples
+
+commit 8ff0f57d77863f6adda8c84729b22f993bdccefb
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Apr 17 16:05:03 2009 -0400
+
+    Remove trailing whitespace
+
+commit 380c6ca2e1963f23e03601e96ceef9f6a1d741e0
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Thu Apr 16 18:00:22 2009 -0400
+
+    Fix text
+
+commit 293c3cf951792383de2fb7cbda45b02284471d46
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Fri Nov 28 17:53:49 2008 +0000
+
+    Add libgthread requirement to the configure file
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1383 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit 3471e5083e6f0d7f2ed7c0d1e74f4c1f240491b0
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Oct 28 23:25:24 2008 +0000
+
+    Post release version bump
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1340 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit c27d9e9abaeb977279f6706a09a860e432861591
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Oct 28 21:33:37 2008 +0000
+
+    Disable gtkdoc-check, it breaks with distcheck
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1338 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit 86363862f3694bbd6ccab385b6749e50e92e306d
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Oct 28 21:22:44 2008 +0000
+
+    Add dist-hook to generate changelog from svn changelog
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1337 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit 99185782ed71c01113003d1e0fbd5046bced0864
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Oct 28 21:20:23 2008 +0000
+
+    Make unit tests work with distcheck
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1336 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit fe5693f4b56eddbc086d558094448695a9dcdacb
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Oct 28 20:49:40 2008 +0000
+
+    Add version.xml t the content_files
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1335 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit f9de479dc6148b1becb40c623e1b92ed0d25bd28
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Oct 28 20:29:55 2008 +0000
+
+    Update dependancy
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1334 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit 1afaf96a014fcb9c7a63d7987de418475b70d8cc
+Author: Jussi Kukkonen <jku@openedhand.com>
+Date:   Fri Oct 17 10:19:16 2008 +0000
+
+    2008-10-17  Jussi Kukkonen  <jku@linux.intel.com>
+    
+    	* tests/gtest/WANIPConnection.xml:
+    
+    	Remove whitespace from action name in service definition
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1306 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit a2819d8a17638f279fe669bac319d000cd31dc16
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 22:44:13 2008 +0000
+
+    Remove the word farsight
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1296 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit a34443dbe20ee1740be53aa5a5315818725440b4
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 22:42:00 2008 +0000
+
+    Replace GPL2 with LGPL-2.1
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1295 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit d23c04c7b1a2997e1bcb45b75a8279a034c0a2da
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 22:13:42 2008 +0000
+
+    Fill README a bit
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1294 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit a50f56e8e7f107595a0aea8076ef324fd07b51cc
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 22:11:05 2008 +0000
+
+    Added TODO
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1293 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit 02d2e4523d85dd4c0ad49ffce6e76b5bf640e3a3
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 22:07:04 2008 +0000
+
+    Set the SoupSession timeout directly
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1292 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit 292b34ac9509e2c80b1ab694a366c8fcd56307db
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 22:06:47 2008 +0000
+
+    Depends on glib 2.14 for constructed()
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1291 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit d2df36869e155338510755d217cf3802aad8d414
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 21:54:55 2008 +0000
+
+    Update tests to succeed with WANPPPConnection testing
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1290 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit ace70ffbdc860aacf5121f8afd5d142776296415
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 21:34:50 2008 +0000
+
+    Add WANPPPConnection.xml definition
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1289 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit dc01ad981e3a602370af5df08b2b5a89fccb75cc
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 21:23:44 2008 +0000
+
+    Add support for WANPPPConnection:1
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1288 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit 90a15b18718aa6c11ea133380fd970d8ac1c8771
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 21:21:42 2008 +0000
+
+    Remove remnant of FS_ prefixes
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1287 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit f9c9d87d49a86a55bf83a2098ad4d2c046188cf7
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 21:20:19 2008 +0000
+
+    Add gtk-doc documentation
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1286 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit c03ce1db7e9720fdafd0572c0c8b631bc3285890
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 21:03:52 2008 +0000
+
+    Add list of types to probe
+    
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1285 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit bf2c8d8bb7756bfc302c5a4f2cf12756ec07afac
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 20:51:53 2008 +0000
+
+    Rename cp to ip_cp and associated signals handlers too
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1284 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit 22efb288196026dfd034b116b35847182b9e561b
+Author: Olivier Crête <olivier.crete@collabora.co.uk>
+Date:   Tue Sep 30 20:03:35 2008 +0000
+
+    Add myself as author
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1283 d8cb91d7-bff9-0310-92b9-80b65e4482b2
+
+commit 7d8b26fc2a9b7435d34eb8be8d41ad91306590e8
+Author: Ross Burton <ross@openedhand.com>
+Date:   Tue Sep 30 16:10:39 2008 +0000
+
+    Import gupnp-igd, thanks Olivier Crête <olivier.crete@collabora.co.uk>
+    
+    git-svn-id: https://svn.o-hand.com/repos/gupnp/trunk/gupnp-igd@1282 d8cb91d7-bff9-0310-92b9-80b65e4482b2
